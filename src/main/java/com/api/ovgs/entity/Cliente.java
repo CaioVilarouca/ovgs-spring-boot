@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name ="tb_client")
-public class Client {
+public class Cliente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Key primary 
 	private Integer id;
@@ -26,9 +26,9 @@ public class Client {
     @Column(nullable = false) 
 	private boolean active;
     
-    public Client() {}
+    public Cliente() {}
 
-	public Client(Integer id, String name, String document, String email, boolean active) {
+	public Cliente(Integer id, String name, String document, String email, boolean active) {
 		super();
 		this.id = id;
 		this.name = name;

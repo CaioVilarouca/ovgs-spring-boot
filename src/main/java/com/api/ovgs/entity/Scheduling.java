@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 @Table(name="tb_scheduling")
 public class Scheduling { // Agendamento  
 	
-    @Id
+    @Id	
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
     
