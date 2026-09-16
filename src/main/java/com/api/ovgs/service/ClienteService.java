@@ -5,6 +5,7 @@ import com.api.ovgs.dto.ClienteRequestDTO;
 import com.api.ovgs.dto.ClienteResponseDTO;
 import com.api.ovgs.entity.Cliente;
 import com.api.ovgs.repository.ClienteRepository;
+import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +16,7 @@ public class ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
-   public ClienteResponseDTO createNewCliente(ClienteRequestDTO clienteRequestDTO) {
+   public ClienteResponseDTO createNewCliente(@NonNull ClienteRequestDTO clienteRequestDTO) {
         Cliente clienteNewSave = clienteRepository.save(clienteRequestDTO.toEntity());
         return new ClienteResponseDTO(clienteNewSave);
    }
