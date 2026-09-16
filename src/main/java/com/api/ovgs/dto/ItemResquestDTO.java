@@ -2,19 +2,11 @@ package com.api.ovgs.dto;
 
 import com.api.ovgs.entity.Item;
 
-public class ItemReponseDTO {
-
+public class ItemResquestDTO {
     private Integer id;
     private String name;
     private String description;
     private boolean active;
-
-    public ItemReponseDTO(Integer id, String name, String description, boolean active) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.active = active;
-    }
 
     public Integer getId() {
         return id;
@@ -46,5 +38,9 @@ public class ItemReponseDTO {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public Item toItem() {
+        return new Item(null, this.name, this.description, this.active);
     }
 }
