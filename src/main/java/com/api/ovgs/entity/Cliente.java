@@ -3,7 +3,7 @@ package com.api.ovgs.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name ="tb_client")
+@Table(name ="tb_cliente")
 public class Cliente {
 
 	@Id
