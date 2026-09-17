@@ -9,13 +9,6 @@ public class ItemReponseDTO {
     private String description;
     private boolean active;
 
-    public ItemReponseDTO(Integer id, String name, String description, boolean active) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.active = active;
-    }
-
     public Integer getId() {
         return id;
     }

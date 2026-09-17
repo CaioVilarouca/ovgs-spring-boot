@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ClienteService {
+
     private final ClienteRepository clienteRepository;
 
     public ClienteService(ClienteRepository clienteRepository) {
@@ -17,7 +18,9 @@ public class ClienteService {
     }
 
    public ClienteResponseDTO createNewCliente(@NonNull ClienteRequestDTO clienteRequestDTO) {
-        Cliente clienteNewSave = clienteRepository.save(clienteRequestDTO.toEntity());
-        return new ClienteResponseDTO(clienteNewSave);
+        Cliente clienteRequest = clienteRequestDTO.toEntity();// Conversão DTO para entidade
+        Cliente clienteNewSave = clienteRepository.save(clienteRequest); // Repository recebe a entidade
+        ClienteResponseDTO clienteReponseDTO = new ClienteResponseDTO(clienteNewSave); // Conversão Entidade para DTO
+        return clienteReponseDTO;
    }
 }

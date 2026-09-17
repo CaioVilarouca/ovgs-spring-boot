@@ -20,8 +20,7 @@ public class ClienteController {
 
     @PostMapping
     public ClienteResponseDTO createCliente(@RequestBody ClienteRequestDTO clienteRequestDTO) {
-      return clienteService.createNewCliente(clienteRequestDTO);
+      ClienteResponseDTO response = clienteService.createNewCliente(clienteRequestDTO) ;
+      return response;
     }
-
-
 }

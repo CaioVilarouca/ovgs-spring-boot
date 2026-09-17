@@ -11,14 +11,6 @@ public class ClienteResponseDTO {
     private String email;
     private boolean active;
 
-    public ClienteResponseDTO(Integer id, String document, String name, boolean active, String email) {
-        this.id = id;
-        this.document = document;
-        this.name = name;
-        this.active = active;
-        this.email = email;
-    }
-
     public ClienteResponseDTO(Cliente clienteNewSave) {
         this.id = clienteNewSave.getId();
         this.name = clienteNewSave.getName();
