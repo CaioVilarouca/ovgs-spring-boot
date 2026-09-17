@@ -1,14 +1,13 @@
 package com.api.ovgs.entity;
 
 import com.api.ovgs.domain.StatusScheduling;
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+@Entity
+@Table(name="tb_scheduling")
 public class Scheduling {
 
     @Id
