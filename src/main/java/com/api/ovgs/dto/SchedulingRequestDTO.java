@@ -1,44 +1,19 @@
-package com.api.ovgs.entity;
+package com.api.ovgs.dto;
 
 import com.api.ovgs.domain.StatusScheduling;
-import jakarta.persistence.*;
+import com.api.ovgs.entity.Scheduling;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
-@Entity
-@Table(name="tb_scheduling")
-public class Scheduling {
+public class SchedulingRequestDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(nullable = false)
     private LocalDate dayDelivery;
-
-    @Column(nullable = false)
     private LocalTime windowsStar;
-
-    @Column(nullable = false)
-    private LocalTime windowsFinsh;
-
-
-    @Column(nullable = false)
+    private LocalTime windowsFinish;
     private StatusScheduling statusScheduling;
-
-    public Scheduling(){}
-
-    public Scheduling(Integer id, LocalDate dayDelivery, LocalTime windowsStar, LocalTime windowsFinsh, StatusScheduling statusScheduling) {
-        this.id = id;
-        this.dayDelivery = dayDelivery;
-        this.windowsStar = windowsStar;
-        this.windowsFinsh = windowsFinsh;
-        this.statusScheduling = statusScheduling;
-    }
-
-
 
     public Integer getId() {
         return id;
@@ -64,12 +39,12 @@ public class Scheduling {
         this.windowsStar = windowsStar;
     }
 
-    public LocalTime getWindowsFinsh() {
-        return windowsFinsh;
+    public LocalTime getWindowsFinish() {
+        return windowsFinish;
     }
 
-    public void setWindowsFinsh(LocalTime windowsFinsh) {
-        this.windowsFinsh = windowsFinsh;
+    public void setWindowsFinish(LocalTime windowsFinish) {
+        this.windowsFinish = windowsFinish;
     }
 
     public StatusScheduling getStatusScheduling() {
@@ -78,5 +53,9 @@ public class Scheduling {
 
     public void setStatusScheduling(StatusScheduling statusScheduling) {
         this.statusScheduling = statusScheduling;
+    }
+
+    public Scheduling toScheduling() {
+        return new Scheduling(null, this.dayDelivery, this.windowsStar, this.windowsFinish, this.statusScheduling);
     }
 }
