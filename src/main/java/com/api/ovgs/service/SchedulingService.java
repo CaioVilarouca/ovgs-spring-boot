@@ -16,7 +16,11 @@ public class SchedulingService {
         this.schedulingRepository = schedulingRepository;
     }
 
-    public SchedulingReponseDTO createNewScheduling(@NotNull SchedulingResquetDTO schedulingResquetDTO){
-        return new SchedulingReponseDTO(schedulingRepository.save(schedulingResquetDTO.toScheduling()));
+   public SchedulingReponseDTO createNewScheduling(@NotNull SchedulingResquetDTO schedulingResquetDTO){
+        Scheduling request = schedulingResquetDTO.toScheduling();
+        Scheduling save = schedulingRepository.save(request);
+        SchedulingReponseDTO reponse = new SchedulingReponseDTO(save);
+        return reponse;
+        //return new SchedulingReponseDTO(schedulingRepository.save(schedulingResquetDTO.toScheduling()));
     }
 }

@@ -22,23 +22,21 @@ public class Scheduling {
     private LocalTime windowsStar;
 
     @Column(nullable = false)
-    private LocalTime windowsFinsh;
+    private LocalTime windowsFinish;
 
-
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private StatusScheduling statusScheduling;
 
     public Scheduling(){}
 
-    public Scheduling(Integer id, LocalDate dayDelivery, LocalTime windowsStar, LocalTime windowsFinsh, StatusScheduling statusScheduling) {
+    public Scheduling(Integer id, LocalDate dayDelivery, LocalTime windowsStar, LocalTime windowsFinish, StatusScheduling statusScheduling) {
         this.id = id;
         this.dayDelivery = dayDelivery;
         this.windowsStar = windowsStar;
-        this.windowsFinsh = windowsFinsh;
+        this.windowsFinish = windowsFinish;
         this.statusScheduling = statusScheduling;
     }
-
-
 
     public Integer getId() {
         return id;
@@ -64,12 +62,12 @@ public class Scheduling {
         this.windowsStar = windowsStar;
     }
 
-    public LocalTime getWindowsFinsh() {
-        return windowsFinsh;
+    public LocalTime getWindowsFinish() {
+        return windowsFinish;
     }
 
-    public void setWindowsFinsh(LocalTime windowsFinsh) {
-        this.windowsFinsh = windowsFinsh;
+    public void setWindowsFinish(LocalTime windowsFinish) {
+        this.windowsFinish = windowsFinish;
     }
 
     public StatusScheduling getStatusScheduling() {

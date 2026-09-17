@@ -2,6 +2,7 @@ package com.api.ovgs.dto;
 
 import com.api.ovgs.domain.StatusScheduling;
 import com.api.ovgs.entity.Scheduling;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,6 +10,8 @@ import java.time.LocalTime;
 public class SchedulingReponseDTO {
 
     private Integer id;
+
+    //@JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dayDelivery;
     private LocalTime windowsStar;
     private LocalTime windowsFinish;
@@ -18,7 +21,7 @@ public class SchedulingReponseDTO {
         this.id = scheduling.getId();
         this.dayDelivery = scheduling.getDayDelivery();
         this.windowsStar = scheduling.getWindowsStar();
-        this.windowsFinish = scheduling.getWindowsFinsh();
+        this.windowsFinish = scheduling.getWindowsFinish();
         this.statusScheduling = scheduling.getStatusScheduling();
     }
 
