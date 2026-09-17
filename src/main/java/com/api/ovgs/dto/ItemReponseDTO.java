@@ -1,5 +1,6 @@
 package com.api.ovgs.dto;
 
+import com.api.ovgs.entity.Cliente;
 import com.api.ovgs.entity.Item;
 
 public class ItemReponseDTO {
@@ -8,6 +9,13 @@ public class ItemReponseDTO {
     private String name;
     private String description;
     private boolean active;
+
+    public ItemReponseDTO(Item createNewItem) {
+        this.id = createNewItem.getId();
+        this.name = createNewItem.getName();
+        this.description = createNewItem.getDescription();
+        this.active = createNewItem.isActive();
+    }
 
     public Integer getId() {
         return id;
