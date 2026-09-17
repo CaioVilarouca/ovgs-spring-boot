@@ -19,7 +19,7 @@ public class Item {
 	private String name;
 	
 	@Column(length = 255)
-	private String description;
+			private String description;
 	
 	@Column(nullable = false)
 	private boolean active;
