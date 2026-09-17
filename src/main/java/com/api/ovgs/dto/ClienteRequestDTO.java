@@ -10,7 +10,6 @@ public class ClienteRequestDTO {
     private String email;
     private boolean active;
 
-
     public Integer getId() {
         return id;
     }

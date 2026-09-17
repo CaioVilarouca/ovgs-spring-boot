@@ -1,17 +1,14 @@
 package com.api.ovgs.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name ="tb_client")
 public class Cliente {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY) // Key primary 
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // Key primary
+	@JoinColumn(name ="id")
 	private Integer id;
 	
 	@Column(nullable = false, length = 150) // o campo é obrigatório; no banco, ele não pode ser NULL
