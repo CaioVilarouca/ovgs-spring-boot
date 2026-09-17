@@ -19,7 +19,7 @@ public class TypeTransport {
     @Column(nullable = false)
     private boolean active;
 
-    private TypeTransport() {}
+    public TypeTransport(){}
 
     public TypeTransport(Integer id, String name, String description, boolean active) {
         this.id = id;
