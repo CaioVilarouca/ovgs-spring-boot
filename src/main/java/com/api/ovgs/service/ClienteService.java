@@ -8,6 +8,8 @@ import com.api.ovgs.repository.ClienteRepository;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ClienteService {
 
@@ -22,5 +24,9 @@ public class ClienteService {
         Cliente clienteNewSave = clienteRepository.save(clienteRequest); // Repository recebe a entidade
         ClienteResponseDTO clienteReponseDTO = new ClienteResponseDTO(clienteNewSave); // Conversão Entidade para DTO
         return clienteReponseDTO;
+   }
+
+   public Optional<Cliente> findById(Integer id) {
+        return clienteRepository.findById(id);
    }
 }
