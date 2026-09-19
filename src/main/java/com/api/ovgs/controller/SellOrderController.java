@@ -20,7 +20,6 @@ public class SellOrderController {
 
     @PostMapping
     public SellOrderResponseDTO createSellOrder(@RequestBody SellOrderResquetDTO sellOrderRequestDTO){
-        return sellOrderService.create(sellOrderRequestDTO);
+        return sellOrderService.createNewSellOrder(sellOrderRequestDTO);
     }
-
 }

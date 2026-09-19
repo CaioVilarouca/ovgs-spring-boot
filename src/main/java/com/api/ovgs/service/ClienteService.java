@@ -20,12 +20,14 @@ public class ClienteService {
     }
 
    public ClienteResponseDTO createNewCliente(@NonNull ClienteRequestDTO clienteRequestDTO) {
+
         Cliente clienteRequest = clienteRequestDTO.toEntity();// Conversão DTO para entidade
         Cliente clienteNewSave = clienteRepository.save(clienteRequest); // Repository recebe a entidade
         ClienteResponseDTO clienteReponseDTO = new ClienteResponseDTO(clienteNewSave); // Conversão Entidade para DTO
         return clienteReponseDTO;
    }
 
+   // Pode ou não retorna alguma coisa
    public Optional<Cliente> findById(Integer id) {
         return clienteRepository.findById(id);
    }

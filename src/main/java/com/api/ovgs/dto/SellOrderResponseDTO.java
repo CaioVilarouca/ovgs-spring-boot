@@ -13,6 +13,7 @@ public class SellOrderResponseDTO {
     private LocalDateTime dayUpdate;
     private StatusSellOrder statusSellOrder;
     private Integer clienteId;
+
     private List<Item> item;
     private Scheduling scheduling;
     private TypeTransport typeTransport;

@@ -61,9 +61,6 @@ public class SellOrderResquetDTO {
     }
 
     public SellOrder toSellOrder(Cliente cliente) {
-
-        //return new SellOrder(null, this.dayCreate, this.dayUpdate, this.statusSellOrder, cliente, this.item, this.scheduling, this.typeTransport);
         return new SellOrder(null, this.dayCreate, this.dayUpdate, this.statusSellOrder, cliente, null, null, null);
-
     }
 }

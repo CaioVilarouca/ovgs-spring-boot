@@ -61,7 +61,8 @@ public class ItemSellOrder {
         this.item = item;
     }
 
+    /* Sub Total
     public double subTotal() {
         return price * amount;
-    }
+    }*/
 }
