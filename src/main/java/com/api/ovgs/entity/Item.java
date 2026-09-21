@@ -16,22 +16,21 @@ public class Item {
 	private Integer id;
 	
 	@Column(nullable = false, length = 150)
-	private String name;
+	private String nome;
 	
 	@Column(length = 255)
-			private String description;
+	private String descricao;
 	
 	@Column(nullable = false)
-	private boolean active;
+	private boolean ativo;
 	
 	public Item() {}
 
-	public Item(Integer id, String name, String description, boolean active) {
-		super();
+	public Item(Integer id, String nome, String descricao, boolean ativo) {
 		this.id = id;
-		this.name = name;
-		this.description = description;
-		this.active = active;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.ativo = ativo;
 	}
 
 	public Integer getId() {
@@ -42,27 +41,27 @@ public class Item {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getDescription() {
-		return description;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public boolean isActive() {
-		return active;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 }
