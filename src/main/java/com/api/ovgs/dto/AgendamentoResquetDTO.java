@@ -40,7 +40,7 @@ public class AgendamentoResquetDTO {
         this.agendamentoStatus = agendamentoStatus;
     }
 
-    public Agendamento toScheduling() {
+    public Agendamento agendamentoEntidade() {
         return new Agendamento(null, this.diaEntrega, this.janelaInicio, this.janelaFim, this.agendamentoStatus);
     }
 }
