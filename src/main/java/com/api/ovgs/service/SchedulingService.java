@@ -1,7 +1,7 @@
 package com.api.ovgs.service;
 
 import com.api.ovgs.dto.AgendamentoReponseDTO;
-import com.api.ovgs.dto.SchedulingResquetDTO;
+import com.api.ovgs.dto.AgendamentoResquetDTO;
 import com.api.ovgs.entity.Agendamento;
 import com.api.ovgs.repository.AgendamentoRepository;
 import jakarta.validation.constraints.NotNull;
@@ -16,7 +16,7 @@ public class SchedulingService {
         this.schedulingRepository = agendamentoRepository;
     }
 
-   public AgendamentoReponseDTO createNewScheduling(@NotNull SchedulingResquetDTO schedulingResquetDTO){
+   public AgendamentoReponseDTO createNewScheduling(@NotNull AgendamentoResquetDTO schedulingResquetDTO){
         Agendamento request = schedulingResquetDTO.toScheduling();
         Agendamento save = schedulingRepository.save(request);
         AgendamentoReponseDTO reponse = new AgendamentoReponseDTO(save);
