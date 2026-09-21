@@ -5,27 +5,30 @@ import com.api.ovgs.entity.Item;
 public class ItemResquestDTO {
 
     private Integer id;
-    private String name;
-    private String description;
-    private boolean active;
+
+    private String nome;
+
+    private String descricao;
+
+    private boolean ativo;
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
-    public Item toItem() {
-        return new Item(null, this.name, this.description, this.active);
+    public Item itemEntidade() {
+        return new Item(null, this.nome, this.descricao, this.ativo);
     }
 }
