@@ -19,7 +19,7 @@ public class ItemController {
     }
 
     @PostMapping
-    public ItemReponseDTO createItem(@RequestBody ItemResquestDTO itemResquestDTO) {
-        return itemService.createNewItem(itemResquestDTO);
+    public ItemReponseDTO criar(@RequestBody ItemResquestDTO itemResquestDTO) {
+        return itemService.criarItem(itemResquestDTO);
     }
 }
