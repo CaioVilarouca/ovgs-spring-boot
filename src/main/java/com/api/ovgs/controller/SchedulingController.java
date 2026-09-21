@@ -1,6 +1,6 @@
 package com.api.ovgs.controller;
 
-import com.api.ovgs.dto.SchedulingReponseDTO;
+import com.api.ovgs.dto.AgendamentoReponseDTO;
 import com.api.ovgs.dto.SchedulingResquetDTO;
 import com.api.ovgs.service.SchedulingService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +19,7 @@ public class SchedulingController {
     }
 
     @PostMapping
-    public SchedulingReponseDTO createScheduling(@RequestBody SchedulingResquetDTO schedulingResquetDTO){
+    public AgendamentoReponseDTO createScheduling(@RequestBody SchedulingResquetDTO schedulingResquetDTO){
         return schedulingService.createNewScheduling(schedulingResquetDTO);
     }
 }

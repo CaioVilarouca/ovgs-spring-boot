@@ -1,6 +1,6 @@
 package com.api.ovgs.domain;
 
-public enum StatusScheduling { // Status Agendamento
+public enum AgendamentoStatus {
 	PENDENTE,
 	CONFIRMADO,
 	REAGENDADO,

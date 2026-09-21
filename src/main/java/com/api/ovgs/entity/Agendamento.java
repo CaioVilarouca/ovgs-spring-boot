@@ -1,6 +1,6 @@
 package com.api.ovgs.entity;
 
-import com.api.ovgs.domain.StatusScheduling;
+import com.api.ovgs.domain.AgendamentoStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -25,16 +25,16 @@ public class Agendamento {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private StatusScheduling statusScheduling;
+    private AgendamentoStatus agendamentoStatus;
 
     public Agendamento(){}
 
-    public Agendamento(Integer id, LocalDate diaEntrega, LocalTime janelaInicio, LocalTime janelaFim, StatusScheduling statusScheduling) {
+    public Agendamento(Integer id, LocalDate diaEntrega, LocalTime janelaInicio, LocalTime janelaFim, AgendamentoStatus agendamentoStatus) {
         this.id = id;
         this.diaEntrega = diaEntrega;
         this.janelaInicio = janelaInicio;
         this.janelaFim = janelaFim;
-        this.statusScheduling = statusScheduling;
+        this.agendamentoStatus = agendamentoStatus;
     }
 
     public Integer getId() {
@@ -69,11 +69,11 @@ public class Agendamento {
         this.janelaFim = janelaFim;
     }
 
-    public StatusScheduling getStatusScheduling() {
-        return statusScheduling;
+    public AgendamentoStatus getAgendamentoStatus() {
+        return agendamentoStatus;
     }
 
-    public void setStatusScheduling(StatusScheduling statusScheduling) {
-        this.statusScheduling = statusScheduling;
+    public void setAgendamentoStatus(AgendamentoStatus agendamentoStatus) {
+        this.agendamentoStatus = agendamentoStatus;
     }
 }
