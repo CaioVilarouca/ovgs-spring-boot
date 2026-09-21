@@ -1,7 +1,7 @@
 package com.api.ovgs.dto;
 
 import com.api.ovgs.domain.StatusScheduling;
-import com.api.ovgs.entity.Scheduling;
+import com.api.ovgs.entity.Agendamento;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
@@ -37,7 +37,7 @@ public class SchedulingResquetDTO {
         this.statusScheduling = statusScheduling;
     }
 
-    public Scheduling toScheduling() {
-        return new Scheduling(null, this.dayDelivery, this.windowsStar, this.windowsFinish, this.statusScheduling);
+    public Agendamento toScheduling() {
+        return new Agendamento(null, this.dayDelivery, this.windowsStar, this.windowsFinish, this.statusScheduling);
     }
 }

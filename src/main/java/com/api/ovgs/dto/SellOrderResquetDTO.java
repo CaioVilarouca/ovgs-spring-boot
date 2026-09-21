@@ -20,7 +20,7 @@ public class SellOrderResquetDTO {
 
     private List<Item> item;
 
-    private Scheduling scheduling;
+    private Agendamento scheduling;
 
     private TypeTransport typeTransport;
 
@@ -48,7 +48,7 @@ public class SellOrderResquetDTO {
         this.item = item;
     }
 
-    public void setScheduling(Scheduling scheduling) {
+    public void setScheduling(Agendamento scheduling) {
         this.scheduling = scheduling;
     }
 

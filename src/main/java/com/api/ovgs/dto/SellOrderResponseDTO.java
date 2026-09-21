@@ -15,7 +15,7 @@ public class SellOrderResponseDTO {
     private Integer clienteId;
 
     private List<Item> item;
-    private Scheduling scheduling;
+    private Agendamento scheduling;
     private TypeTransport typeTransport;
 
     public SellOrderResponseDTO(SellOrder sellOrder) {
@@ -53,7 +53,7 @@ public class SellOrderResponseDTO {
         return item;
     }
 
-    public Scheduling getScheduling() {
+    public Agendamento getScheduling() {
         return scheduling;
     }
 
