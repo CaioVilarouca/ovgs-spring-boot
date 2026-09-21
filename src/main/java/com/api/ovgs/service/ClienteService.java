@@ -27,7 +27,7 @@ public class ClienteService {
    }
 
    // Pode ou não retorna alguma coisa
-   //public Optional<Cliente> findById(Integer id) {
-     //   return clienteRepository.buscarPorID(id);
-   //}
+   public Optional<Cliente> findById(Integer id) {
+     return clienteRepository.findById(id);
+   }
 }

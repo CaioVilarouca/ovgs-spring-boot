@@ -19,8 +19,7 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ClienteResponseDTO createCliente(@RequestBody ClienteRequestDTO clienteRequestDTO) {
-      ClienteResponseDTO responseCliente = clienteService.createNewCliente(clienteRequestDTO) ;
-      return responseCliente;
+    public ClienteResponseDTO criar(@RequestBody ClienteRequestDTO clienteRequestDTO) {
+      return clienteService.criarCliente(clienteRequestDTO);
     }
 }
