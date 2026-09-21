@@ -5,32 +5,36 @@ import com.api.ovgs.entity.Cliente;
 public class ClienteRequestDTO {
 
     private Integer id;
-    private String name;
-    private String document;
+
+    private String nome;
+
+    private String documento;
+
     private String email;
-    private boolean active;
+
+    private boolean ativo;
 
     public void setId(Integer id) {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setDocument(String document) {
-        this.document = document;
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
-    public Cliente toEntity(){
-        return new Cliente(null, this.name, this.document, this.email, this.active);
+    public Cliente clienteEntidade(){
+        return new Cliente(null, this.nome, this.documento, this.email, this.ativo);
     }
 }
