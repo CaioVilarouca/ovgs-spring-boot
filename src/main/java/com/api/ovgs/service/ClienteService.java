@@ -19,16 +19,15 @@ public class ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
-   public ClienteResponseDTO createNewCliente(@NonNull ClienteRequestDTO clienteRequestDTO) {
-
-        Cliente clienteRequest = clienteRequestDTO.toEntity();// Conversão DTO para entidade
-        Cliente clienteNewSave = clienteRepository.save(clienteRequest); // Repository recebe a entidade
-        ClienteResponseDTO clienteReponseDTO = new ClienteResponseDTO(clienteNewSave); // Conversão Entidade para DTO
-        return clienteReponseDTO;
+   public ClienteResponseDTO criarCliente(@NonNull ClienteRequestDTO clienteRequestDTO) {
+       /* Cliente clienteRequest = clienteRequestDTO.clienteEntidade();Conversão DTO para entidade
+          Cliente clienteSave = clienteRepository.save(clienteRequest); Repository recebe a entidade
+          ClienteResponseDTO clienteReponseDTO = new ClienteResponseDTO(clienteSave);Conversão Entidade para DTO */
+       return new ClienteResponseDTO(clienteRepository.save(clienteRequestDTO.clienteEntidade()));
    }
 
    // Pode ou não retorna alguma coisa
-   public Optional<Cliente> findById(Integer id) {
-        return clienteRepository.findById(id);
-   }
+   //public Optional<Cliente> findById(Integer id) {
+     //   return clienteRepository.buscarPorID(id);
+   //}
 }
