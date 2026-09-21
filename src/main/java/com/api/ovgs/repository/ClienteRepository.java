@@ -7,5 +7,4 @@ import com.api.ovgs.entity.Cliente;
 
 @Repository // Uma interface para acessar o banco de dados
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
-
 }

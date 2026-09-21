@@ -12,26 +12,25 @@ public class Cliente {
 	private Integer id;
 	
 	@Column(nullable = false, length = 150) // o campo é obrigatório; no banco, ele não pode ser NULL
-	private String name;
+	private String nome;
 	
 	@Column(nullable = false, unique = true, length = 20) // unique = true: não pode haver dois registros com o mesmo documento
-	private String document;
+	private String documento;
 	
     @Column(length = 150) // a coluna terá o max 150 caracteres
 	private String email;
     
     @Column(nullable = false) 
-	private boolean active;
+	private boolean ativo;
     
     public Cliente() {}
 
-	public Cliente(Integer id, String name, String document, String email, boolean active) {
-		super();
+	public Cliente(Integer id, String nome, String documento, String email, boolean ativo) {
 		this.id = id;
-		this.name = name;
-		this.document = document;
+		this.nome = nome;
+		this.documento = documento;
 		this.email = email;
-		this.active = active;
+		this.ativo = ativo;
 	}
 
 	public Integer getId() {
@@ -42,20 +41,20 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getDocument() {
-		return document;
+	public String getDocumento() {
+		return documento;
 	}
 
-	public void setDocument(String document) {
-		this.document = document;
+	public void setDocumento(String documento) {
+		this.documento = documento;
 	}
 
 	public String getEmail() {
@@ -66,11 +65,11 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public boolean isActive() {
-		return active;
+	public boolean isAtivo() {
+		return ativo;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
 	}
 }
