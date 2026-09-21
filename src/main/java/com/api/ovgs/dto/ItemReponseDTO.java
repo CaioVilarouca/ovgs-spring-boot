@@ -5,30 +5,33 @@ import com.api.ovgs.entity.Item;
 public class ItemReponseDTO {
 
     private Integer id;
-    private String name;
-    private String description;
-    private boolean active;
 
-    public ItemReponseDTO(Item itemNewSave) {
-        this.id = itemNewSave.getId();
-        this.name = itemNewSave.getName();
-        this.description = itemNewSave.getDescription();
-        this.active = itemNewSave.isActive();
+    private String nome;
+
+    private String descricao;
+
+    private boolean ativo;
+
+    public ItemReponseDTO(Item item) {
+        this.id = item.getId();
+        this.nome = item.getNome();
+        this.descricao = item.getDescricao();
+        this.ativo = item.isAtivo();
     }
 
     public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public boolean isActive() {
-        return active;
+    public boolean isAtivo() {
+        return ativo;
     }
 }
