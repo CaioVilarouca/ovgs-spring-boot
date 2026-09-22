@@ -8,12 +8,12 @@ import com.api.ovgs.repository.OrdemVendaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SellOrderService {
+public class OrdemVendaService {
 
     private final OrdemVendaRepository sellOrderRepository;
     private final ClienteService clienteService;
 
-    public SellOrderService(OrdemVendaRepository ordemVendaRepository, ClienteService clienteService) {
+    public OrdemVendaService(OrdemVendaRepository ordemVendaRepository, ClienteService clienteService) {
         this.sellOrderRepository = ordemVendaRepository;
         this.clienteService = clienteService;
     }
