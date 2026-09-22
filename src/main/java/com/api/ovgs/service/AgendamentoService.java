@@ -2,9 +2,13 @@ package com.api.ovgs.service;
 
 import com.api.ovgs.dto.AgendamentoReponseDTO;
 import com.api.ovgs.dto.AgendamentoResquetDTO;
+import com.api.ovgs.entity.Agendamento;
+import com.api.ovgs.entity.Cliente;
 import com.api.ovgs.repository.AgendamentoRepository;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class AgendamentoService {
@@ -17,5 +21,10 @@ public class AgendamentoService {
 
     public AgendamentoReponseDTO criarAgendamento(@NotNull AgendamentoResquetDTO agendamentoResquetDTO){
         return new AgendamentoReponseDTO(agendamentoRepository.save(agendamentoResquetDTO.agendamentoEntidade()));
+    }
+
+    // Pode ou não retorna alguma coisa
+    public Optional<Agendamento> findById(Integer id) {
+        return agendamentoRepository.findById(id);
     }
 }

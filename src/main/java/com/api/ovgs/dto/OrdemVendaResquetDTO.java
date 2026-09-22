@@ -23,7 +23,7 @@ public class OrdemVendaResquetDTO {
 
     private List<Item> item;
 
-    private Agendamento agendamento;
+    private Integer agendamentoId;
 
     private TipoTransporte tipoTransporte;
 
@@ -55,14 +55,18 @@ public class OrdemVendaResquetDTO {
         this.item = item;
     }
 
-    public void setAgendamento(Agendamento agendamento) {
-        this.agendamento = agendamento;
+    public void setAgendamentoId(Integer agendamentoId) {
+        this.agendamentoId = agendamentoId;
+    }
+
+    public Integer getAgendamentoId() {
+        return agendamentoId;
     }
 
     public void setTipoTransporte(TipoTransporte tipoTransporte) {
         this.tipoTransporte = tipoTransporte;
     }
 
-    public OrdemVenda ordemVendaIntidade(Cliente cliente) {
-        return new OrdemVenda(null, this.diaCreate, this.diaUpdate, this.ordemVendaStatus, cliente, null, null, null);    }
+    public OrdemVenda ordemVendaIntidade(Cliente cliente, Agendamento agendamento) {
+        return new OrdemVenda(null, this.diaCreate, this.diaUpdate, this.ordemVendaStatus, cliente, null, agendamento, null);    }
 }

@@ -15,7 +15,7 @@ public class OrdemVendaResponseDTO {
     private Integer clienteId;
 
     private List<Item> item;
-    private Agendamento agendamento;
+    private Integer agendamento;
     private TipoTransporte tipoTransporte;
 
     public OrdemVendaResponseDTO(OrdemVenda ordemVenda) {
@@ -25,7 +25,7 @@ public class OrdemVendaResponseDTO {
         this.ordemVendaStatus = ordemVenda.getOrdemVendaStatus();
         this.clienteId = ordemVenda.getCliente().getId();
         this.item = ordemVenda.getItem();
-        this.agendamento = ordemVenda.getAgendamento();
+        this.agendamento = ordemVenda.getAgendamento().getId();
         this.tipoTransporte = ordemVenda.getTipoTransporte();
     }
 
@@ -53,7 +53,7 @@ public class OrdemVendaResponseDTO {
         return item;
     }
 
-    public Agendamento getAgendamento() {
+    public Integer getAgendamento() {
         return agendamento;
     }
 
