@@ -1,6 +1,7 @@
 package com.api.ovgs.entity;
 
 import com.api.ovgs.domain.AgendamentoStatus;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -15,6 +16,7 @@ public class Agendamento {
     private Integer id;
 
     @Column(nullable = false)
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate diaEntrega;
 
     @Column(nullable = false)

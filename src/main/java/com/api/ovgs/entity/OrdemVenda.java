@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name="tb_sellOrder")
+@Table(name="tb_ordemVenda")
 public class OrdemVenda { // Ordem de venda
 
     @Id

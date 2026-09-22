@@ -11,7 +11,7 @@ public class AgendamentoReponseDTO {
 
     private Integer id;
 
-    //@JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate diaEntrega;
 
     private LocalTime janelaInicio;
