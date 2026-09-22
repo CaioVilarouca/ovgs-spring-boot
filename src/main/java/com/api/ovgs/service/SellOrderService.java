@@ -4,17 +4,17 @@ import com.api.ovgs.dto.SellOrderResponseDTO;
 import com.api.ovgs.dto.SellOrderResquetDTO;
 import com.api.ovgs.entity.Cliente;
 import com.api.ovgs.entity.OrdemVenda;
-import com.api.ovgs.repository.SellOrderRepository;
+import com.api.ovgs.repository.OrdemVendaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class SellOrderService {
 
-    private final SellOrderRepository sellOrderRepository;
+    private final OrdemVendaRepository sellOrderRepository;
     private final ClienteService clienteService;
 
-    public SellOrderService(SellOrderRepository sellOrderRepository, ClienteService clienteService) {
-        this.sellOrderRepository = sellOrderRepository;
+    public SellOrderService(OrdemVendaRepository ordemVendaRepository, ClienteService clienteService) {
+        this.sellOrderRepository = ordemVendaRepository;
         this.clienteService = clienteService;
     }
 
