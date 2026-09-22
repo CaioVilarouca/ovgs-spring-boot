@@ -2,6 +2,7 @@ package com.api.ovgs.dto;
 
 import com.api.ovgs.domain.OrdemVendaStatus;
 import com.api.ovgs.entity.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,8 +11,10 @@ public class OrdemVendaResquetDTO {
 
     private Integer id;
 
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime diaCreate;
 
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime diaUpdate;
 
     private OrdemVendaStatus ordemVendaStatus;
