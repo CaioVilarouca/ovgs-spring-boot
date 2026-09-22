@@ -13,14 +13,14 @@ public class OrdemVendaService {
     private final OrdemVendaRepository ordemVendaRepository;
     private final ClienteService clienteService;
 
-    public OrdemVendaService(OrdemVendaRepository ordemVendaRepository, ClienteService clienteService) {
+    public OrdemVendaService(OrdemVendaRepository ordemVendaRepository, ClienteService clienteService, TipoTransporteService tipoTransporteService) {
         this.ordemVendaRepository = ordemVendaRepository;
         this.clienteService = clienteService;
     }
 
     public OrdemVendaResponseDTO criarOrdemVenda(OrdemVendaResquetDTO ordemVendaResquetDTO){
-        // findById = buscar o ID do cliente
-        Cliente clienteId = clienteService.buscaPorID(ordemVendaResquetDTO.getClienteId()).get();
+        // findById = buscar o IDs
+        Cliente clienteId = clienteService.findById(ordemVendaResquetDTO.getClienteId()).get();
         // Repository recebe a entidade
         OrdemVenda resquet = ordemVendaResquetDTO.ordemVendaIntidade(clienteId);
         // Repository recebe a entidade
