@@ -2,7 +2,6 @@ package com.api.ovgs.service;
 
 import com.api.ovgs.dto.AgendamentoReponseDTO;
 import com.api.ovgs.dto.AgendamentoResquetDTO;
-import com.api.ovgs.entity.Agendamento;
 import com.api.ovgs.repository.AgendamentoRepository;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;

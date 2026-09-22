@@ -1,6 +1,5 @@
 package com.api.ovgs.service;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.api.ovgs.dto.ClienteRequestDTO;
 import com.api.ovgs.dto.ClienteResponseDTO;
 import com.api.ovgs.entity.Cliente;

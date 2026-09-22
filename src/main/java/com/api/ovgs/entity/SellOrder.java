@@ -35,11 +35,11 @@ public class SellOrder { // Ordem de venda
     private Agendamento scheduling;
 
     @OneToOne
-    private  TypeTransport typeTransport;
+    private TipoTransporte typeTransport;
 
     public SellOrder() {}
 
-    public SellOrder(Integer id, LocalDateTime dayCreate, LocalDateTime dayUpdate, StatusSellOrder statusSellOrder, Cliente cliente, List<Item> item, Agendamento scheduling, TypeTransport typeTransport) {
+    public SellOrder(Integer id, LocalDateTime dayCreate, LocalDateTime dayUpdate, StatusSellOrder statusSellOrder, Cliente cliente, List<Item> item, Agendamento scheduling, TipoTransporte typeTransport) {
         this.id = id;
         this.dayCreate = dayCreate;
         this.dayUpdate = dayUpdate;
@@ -106,11 +106,11 @@ public class SellOrder { // Ordem de venda
         this.scheduling = scheduling;
     }
 
-    public TypeTransport getTypeTransport() {
+    public TipoTransporte getTypeTransport() {
         return typeTransport;
     }
 
-    public void setTypeTransport(TypeTransport typeTransport) {
+    public void setTypeTransport(TipoTransporte typeTransport) {
         this.typeTransport = typeTransport;
     }
 }

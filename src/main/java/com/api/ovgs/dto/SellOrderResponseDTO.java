@@ -16,7 +16,7 @@ public class SellOrderResponseDTO {
 
     private List<Item> item;
     private Agendamento scheduling;
-    private TypeTransport typeTransport;
+    private TipoTransporte typeTransport;
 
     public SellOrderResponseDTO(SellOrder sellOrder) {
         this.id = sellOrder.getId();
@@ -57,7 +57,7 @@ public class SellOrderResponseDTO {
         return scheduling;
     }
 
-    public TypeTransport getTypeTransport() {
+    public TipoTransporte getTypeTransport() {
         return typeTransport;
     }
 }

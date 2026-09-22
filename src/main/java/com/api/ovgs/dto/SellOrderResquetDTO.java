@@ -22,7 +22,7 @@ public class SellOrderResquetDTO {
 
     private Agendamento scheduling;
 
-    private TypeTransport typeTransport;
+    private TipoTransporte typeTransport;
 
     public void setId(Integer id) {
         this.id = id;
@@ -52,7 +52,7 @@ public class SellOrderResquetDTO {
         this.scheduling = scheduling;
     }
 
-    public void setTypeTransport(TypeTransport typeTransport) {
+    public void setTypeTransport(TipoTransporte typeTransport) {
         this.typeTransport = typeTransport;
     }
 
