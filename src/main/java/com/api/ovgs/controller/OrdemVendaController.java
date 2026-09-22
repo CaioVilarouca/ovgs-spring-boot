@@ -1,7 +1,7 @@
 package com.api.ovgs.controller;
 
-import com.api.ovgs.dto.SellOrderResponseDTO;
-import com.api.ovgs.dto.SellOrderResquetDTO;
+import com.api.ovgs.dto.OrdemVendaResponseDTO;
+import com.api.ovgs.dto.OrdemVendaResquetDTO;
 import com.api.ovgs.service.OrdemVendaService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +19,7 @@ public class OrdemVendaController {
     }
 
     @PostMapping
-    public SellOrderResponseDTO createSellOrder(@RequestBody SellOrderResquetDTO sellOrderRequestDTO){
-        return ordemVendaService.createNewSellOrder(sellOrderRequestDTO);
+    public OrdemVendaResponseDTO criar(@RequestBody OrdemVendaResquetDTO ordemVendaResquetDTO){
+        return ordemVendaService.criarOrdemVenda(ordemVendaResquetDTO);
     }
 }
