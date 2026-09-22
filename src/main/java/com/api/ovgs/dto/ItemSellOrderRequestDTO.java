@@ -1,7 +1,7 @@
 package com.api.ovgs.dto;
 
 import com.api.ovgs.entity.Item;
-import com.api.ovgs.entity.ItemSellOrder;
+import com.api.ovgs.entity.ItemOrdemVenda;
 
 public class ItemSellOrderRequestDTO {
 
@@ -26,7 +26,7 @@ public class ItemSellOrderRequestDTO {
         this.item = item;
     }
 
-    public ItemSellOrder toItemSellOrder(){
-        return new ItemSellOrder(null, this.amount, this.price, this.item);
+    public ItemOrdemVenda toItemSellOrder(){
+        return new ItemOrdemVenda(null, this.amount, this.price, this.item);
     }
 }

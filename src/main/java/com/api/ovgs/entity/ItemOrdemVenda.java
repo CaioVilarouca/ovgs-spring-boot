@@ -4,28 +4,28 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="tb_itemSellOrder")
-public class ItemSellOrder {
+public class ItemOrdemVenda {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
-    private Integer amount;
+    private Integer quantidade;
 
     @Column(nullable = false)
-    private Double price;
+    private Double preco;
 
     @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
 
-    public ItemSellOrder() {}
+    public ItemOrdemVenda() {}
 
-    public ItemSellOrder(Integer id, Integer amount, Double price, Item item) {
+    public ItemOrdemVenda(Integer id, Integer quantidade, Double preco, Item item) {
         this.id = id;
-        this.amount = amount;
-        this.price = price;
+        this.quantidade = quantidade;
+        this.preco = preco;
         this.item = item;
     }
 
@@ -37,20 +37,20 @@ public class ItemSellOrder {
         this.id = id;
     }
 
-    public Integer getAmount() {
-        return amount;
+    public Integer getQuantidade() {
+        return quantidade;
     }
 
-    public void setAmount(Integer amount) {
-        this.amount = amount;
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
     }
 
-    public Double getPrice() {
-        return price;
+    public Double getPreco() {
+        return preco;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 
     public Item getItem() {
@@ -63,6 +63,6 @@ public class ItemSellOrder {
 
     /* Sub Total
     public double subTotal() {
-        return price * amount;
+        return preco * quantidade;
     }*/
 }
