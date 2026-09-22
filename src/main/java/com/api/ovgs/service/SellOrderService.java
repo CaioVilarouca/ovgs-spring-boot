@@ -3,7 +3,7 @@ package com.api.ovgs.service;
 import com.api.ovgs.dto.SellOrderResponseDTO;
 import com.api.ovgs.dto.SellOrderResquetDTO;
 import com.api.ovgs.entity.Cliente;
-import com.api.ovgs.entity.SellOrder;
+import com.api.ovgs.entity.OrdemVenda;
 import com.api.ovgs.repository.SellOrderRepository;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +22,9 @@ public class SellOrderService {
         // findById = buscar o ID do cliente
         Cliente clienteId = clienteService.findById(sellOrderResquetDTO.getClienteId()).get();
         // Repository recebe a entidade
-        SellOrder resquet = sellOrderResquetDTO.toSellOrder(clienteId);
+        OrdemVenda resquet = sellOrderResquetDTO.toSellOrder(clienteId);
         // Repository recebe a entidade
-        SellOrder sellOrderNew = sellOrderRepository.save(resquet);
+        OrdemVenda sellOrderNew = sellOrderRepository.save(resquet);
         // Conversão Entidade para DTO
         return new SellOrderResponseDTO(sellOrderNew);
         //Cliente clienteId = clienteService.findById(sellOrderResquetDTO.getClienteId()).get();

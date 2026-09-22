@@ -1,6 +1,6 @@
 package com.api.ovgs.dto;
 
-import com.api.ovgs.domain.StatusSellOrder;
+import com.api.ovgs.domain.OrdemVendaStatus;
 import com.api.ovgs.entity.*;
 
 import java.time.LocalDateTime;
@@ -11,14 +11,14 @@ public class SellOrderResponseDTO {
     private Integer id;
     private LocalDateTime dayCreate;
     private LocalDateTime dayUpdate;
-    private StatusSellOrder statusSellOrder;
+    private OrdemVendaStatus statusSellOrder;
     private Integer clienteId;
 
     private List<Item> item;
     private Agendamento scheduling;
     private TipoTransporte typeTransport;
 
-    public SellOrderResponseDTO(SellOrder sellOrder) {
+    public SellOrderResponseDTO(OrdemVenda sellOrder) {
         this.id = sellOrder.getId();
         this.dayCreate = sellOrder.getDayCreate();
         this.dayUpdate = sellOrder.getDayUpdate();
@@ -41,7 +41,7 @@ public class SellOrderResponseDTO {
         return dayUpdate;
     }
 
-    public StatusSellOrder getStatusSellOrder() {
+    public OrdemVendaStatus getStatusSellOrder() {
         return statusSellOrder;
     }
 
