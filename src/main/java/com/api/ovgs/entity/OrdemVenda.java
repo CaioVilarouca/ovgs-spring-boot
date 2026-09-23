@@ -32,21 +32,21 @@ public class OrdemVenda { // Ordem de venda
     private List<Item> item;
 
     @OneToOne // Um para um
-    private Agendamento agendamento;
+    private Scheduling scheduling;
 
     @OneToOne
     private TipoTransporte tipoTransporte;
 
     public OrdemVenda() {}
 
-    public OrdemVenda(Integer id, LocalDateTime diaCreate, LocalDateTime diaUpdate, OrdemVendaStatus ordemVendaStatus, Client client, List<Item> item, Agendamento agendamento, TipoTransporte tipoTransporte) {
+    public OrdemVenda(Integer id, LocalDateTime diaCreate, LocalDateTime diaUpdate, OrdemVendaStatus ordemVendaStatus, Client client, List<Item> item, Scheduling scheduling, TipoTransporte tipoTransporte) {
         this.id = id;
         this.diaCreate = diaCreate;
         this.diaUpdate = diaUpdate;
         this.ordemVendaStatus = ordemVendaStatus;
         this.client = client;
         this.item = item;
-        this.agendamento = agendamento;
+        this.scheduling = scheduling;
         this.tipoTransporte = tipoTransporte;
     }
 
@@ -98,12 +98,12 @@ public class OrdemVenda { // Ordem de venda
         this.item = item;
     }
 
-    public Agendamento getAgendamento() {
-        return agendamento;
+    public Scheduling getAgendamento() {
+        return scheduling;
     }
 
-    public void setAgendamento(Agendamento agendamento) {
-        this.agendamento = agendamento;
+    public void setAgendamento(Scheduling scheduling) {
+        this.scheduling = scheduling;
     }
 
     public TipoTransporte getTipoTransporte() {

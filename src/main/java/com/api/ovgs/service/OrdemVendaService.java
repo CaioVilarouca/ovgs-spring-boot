@@ -2,7 +2,7 @@ package com.api.ovgs.service;
 
 import com.api.ovgs.dto.OrdemVendaResponseDTO;
 import com.api.ovgs.dto.OrdemVendaResquetDTO;
-import com.api.ovgs.entity.Agendamento;
+import com.api.ovgs.entity.Scheduling;
 import com.api.ovgs.entity.Client;
 import com.api.ovgs.entity.OrdemVenda;
 import com.api.ovgs.repository.OrdemVendaRepository;
@@ -13,21 +13,21 @@ public class OrdemVendaService {
 
     private final OrdemVendaRepository ordemVendaRepository;
     private final ClientService clientService;
-    private final AgendamentoService agendamentoService;
+    private final SchedulingService schedulingService;
 
-    public OrdemVendaService(OrdemVendaRepository ordemVendaRepository, ClientService clientService, TipoTransporteService tipoTransporteService, AgendamentoService agendamentoService) {
+    public OrdemVendaService(OrdemVendaRepository ordemVendaRepository, ClientService clientService, TipoTransporteService tipoTransporteService, SchedulingService schedulingService) {
         this.ordemVendaRepository = ordemVendaRepository;
         this.clientService = clientService;
-        this.agendamentoService = agendamentoService;
+        this.schedulingService = schedulingService;
     }
 
     public OrdemVendaResponseDTO criarOrdemVenda(OrdemVendaResquetDTO ordemVendaResquetDTO){
         // findById = buscar
         Client clientId = clientService.findById(ordemVendaResquetDTO.getClienteId()).get();
-        Agendamento agendamentoId = agendamentoService.findById(ordemVendaResquetDTO.getAgendamentoId()).get();
+        Scheduling schedulingId = schedulingService.findById(ordemVendaResquetDTO.getAgendamentoId()).get();
 
         // Repository recebe a entidade
-        OrdemVenda resquet = ordemVendaResquetDTO.ordemVendaIntidade(clientId, agendamentoId);
+        OrdemVenda resquet = ordemVendaResquetDTO.ordemVendaIntidade(clientId, schedulingId);
         // Repository recebe a entidade
         OrdemVenda ordemVenda = ordemVendaRepository.save(resquet);
         // Conversão Entidade para DTO

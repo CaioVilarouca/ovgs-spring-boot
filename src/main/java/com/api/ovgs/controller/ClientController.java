@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("api/client")
-public class ClientController {
+public class ClientController { // Cliente
 
     private final ClientService clientService;
 
