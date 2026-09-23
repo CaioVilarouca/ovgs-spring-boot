@@ -15,7 +15,7 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public ItemReponseDTO criarItem(@NotNull ItemResquestDTO itemResquestDTO) {
+    public ItemReponseDTO createItem(@NotNull ItemResquestDTO itemResquestDTO) {
         return new ItemReponseDTO(itemRepository.save(itemResquestDTO.itemEntidade()));
     }
 }

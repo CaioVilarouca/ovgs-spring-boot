@@ -6,32 +6,48 @@ public class ItemReponseDTO {
 
     private Integer id;
 
-    private String nome;
+    private String name;
 
-    private String descricao;
+    private String description;
 
-    private boolean ativo;
+    private boolean active;
 
     public ItemReponseDTO(Item item) {
         this.id = item.getId();
-        this.nome = item.getNome();
-        this.descricao = item.getDescricao();
-        this.ativo = item.isAtivo();
+        this.name = item.getName();
+        this.description = item.getDescription();
+        this.active = item.isActive();
     }
 
     public Integer getId() {
         return id;
     }
 
-    public String getNome() {
-        return nome;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getName() {
+        return name;
     }
 
-    public boolean isAtivo() {
-        return ativo;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

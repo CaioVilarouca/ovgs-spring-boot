@@ -6,29 +6,20 @@ public class ItemResquestDTO {
 
     private Integer id;
 
-    private String nome;
+    private String name;
 
-    private String descricao;
+    private String description;
 
-    private boolean ativo;
+    private boolean active;
 
-    public void setId(Integer id) {
+    public ItemResquestDTO(Integer id, String name, String description, boolean active) {
         this.id = id;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public void setAtivo(boolean ativo) {
-        this.ativo = ativo;
+        this.name = name;
+        this.description = description;
+        this.active = active;
     }
 
     public Item itemEntidade() {
-        return new Item(null, this.nome, this.descricao, this.ativo);
+        return new Item(null, this.name, this.description, this.active);
     }
 }

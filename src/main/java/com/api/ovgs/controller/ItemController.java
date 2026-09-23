@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/itens")
+@RequestMapping("api/item")
 public class ItemController {
 
     private final ItemService itemService;
@@ -19,7 +19,7 @@ public class ItemController {
     }
 
     @PostMapping
-    public ItemReponseDTO criar(@RequestBody ItemResquestDTO itemResquestDTO) {
-        return itemService.criarItem(itemResquestDTO);
+    public ItemReponseDTO create(@RequestBody ItemResquestDTO itemResquestDTO) {
+        return itemService.createItem(itemResquestDTO);
     }
 }
