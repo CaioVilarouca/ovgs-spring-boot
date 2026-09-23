@@ -21,7 +21,7 @@ public class SellOrderResponseDTO {
     private List<Item> item;
     private Integer schedulingId;
 
-    private TypeTransport typeTransport;
+    private Integer typeTransportId;
 
     public SellOrderResponseDTO(SellOrder sellOrder) {
         this.id = sellOrder.getId();
@@ -31,7 +31,7 @@ public class SellOrderResponseDTO {
         this.clienteId = sellOrder.getClient().getId();
         this.item = sellOrder.getItem();
         this.schedulingId = sellOrder.getScheduling().getId();
-        this.typeTransport = sellOrder.getTypeTransport();
+        this.typeTransportId = sellOrder.getTypeTransport().getId();
     }
 
     public Integer getId() {
@@ -90,11 +90,11 @@ public class SellOrderResponseDTO {
         this.schedulingId = schedulingId;
     }
 
-    public TypeTransport getTypeTransport() {
-        return typeTransport;
+    public Integer getTypeTransportId() {
+        return typeTransportId;
     }
 
-    public void setTypeTransport(TypeTransport typeTransport) {
-        this.typeTransport = typeTransport;
+    public void setTypeTransportId(Integer typeTransportId) {
+        this.typeTransportId = typeTransportId;
     }
 }
