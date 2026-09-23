@@ -1,32 +1,16 @@
-package com.api.ovgs.entity;
+package com.api.ovgs.dto;
 
-import jakarta.persistence.*;
+import com.api.ovgs.entity.TypeTransport;
 
-@Entity
-@Table(name="tb_tipoTransporte")
-public class TypeTransport {
+public class TypeTransportRequestDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
     private boolean active;
-
-    public TypeTransport(){}
-
-    public TypeTransport(Integer id, String name, String description, boolean active) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.active = active;
-    }
 
     public Integer getId() {
         return id;
@@ -58,5 +42,9 @@ public class TypeTransport {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public TypeTransport toEntity() {
+        return new TypeTransport(null, this.name, this.description, this.active);
     }
 }

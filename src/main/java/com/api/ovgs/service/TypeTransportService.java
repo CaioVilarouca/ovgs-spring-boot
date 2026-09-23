@@ -1,9 +1,9 @@
 package com.api.ovgs.service;
 
-import com.api.ovgs.dto.TipoTransporteRequestDTO;
-import com.api.ovgs.dto.TipoTransporteResponseDTO;
+import com.api.ovgs.dto.TypeTransportRequestDTO;
+import com.api.ovgs.dto.TypeTransportResponseDTO;
 import com.api.ovgs.entity.TypeTransport;
-import com.api.ovgs.repository.TipoTransporteRepository;
+import com.api.ovgs.repository.TypeTransportRepository;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 
@@ -12,18 +12,18 @@ import java.util.Optional;
 @Service
 public class TypeTransportService {
 
-    private final TipoTransporteRepository tipoTransporteRepository;
+    private final TypeTransportRepository typeTransportRepository;
 
-    public TypeTransportService(TipoTransporteRepository tipoTransporteRepository) {
-        this.tipoTransporteRepository = tipoTransporteRepository;
+    public TypeTransportService(TypeTransportRepository typeTransportRepository) {
+        this.typeTransportRepository = typeTransportRepository;
     }
 
-    public TipoTransporteResponseDTO criarTipoTransporte(@NotNull TipoTransporteRequestDTO tipoTransporteRequestDTO) {
-        return new TipoTransporteResponseDTO(tipoTransporteRepository.save(tipoTransporteRequestDTO.tipoTransporteEntidade()));
+    public TypeTransportResponseDTO createTypeTransport(@NotNull TypeTransportRequestDTO typeTransportRequestDTO) {
+        return new TypeTransportResponseDTO(typeTransportRepository.save(typeTransportRequestDTO.toEntity()));
     }
 
     // Pode ou não retorna alguma coisa
     public Optional<TypeTransport> findById(Integer id) {
-        return tipoTransporteRepository.findById(id);
+        return typeTransportRepository.findById(id);
     }
 }

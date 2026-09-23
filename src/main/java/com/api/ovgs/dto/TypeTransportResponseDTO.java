@@ -1,31 +1,22 @@
-package com.api.ovgs.entity;
+package com.api.ovgs.dto;
 
-import jakarta.persistence.*;
+import com.api.ovgs.entity.TypeTransport;
 
-@Entity
-@Table(name="tb_tipoTransporte")
-public class TypeTransport {
+public class TypeTransportResponseDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private String description;
 
-    @Column(nullable = false)
     private boolean active;
 
-    public TypeTransport(){}
-
-    public TypeTransport(Integer id, String name, String description, boolean active) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.active = active;
+    public TypeTransportResponseDTO(TypeTransport typeTransport) {
+        this.id = typeTransport.getId();
+        this.name = typeTransport.getName();
+        this.description = typeTransport.getDescription();
+        this.active = typeTransport.isActive();
     }
 
     public Integer getId() {
