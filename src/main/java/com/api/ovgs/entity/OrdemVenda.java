@@ -26,7 +26,7 @@ public class OrdemVenda { // Ordem de venda
     // --------------------------------
     @ManyToOne // Muitos para um
     @JoinColumn(name = "cliente_id") // coluna que será usada para realizar a associação entre as tabelas
-    private Cliente cliente;
+    private Client client;
 
     @ManyToMany // Muitos para muitos
     private List<Item> item;
@@ -39,12 +39,12 @@ public class OrdemVenda { // Ordem de venda
 
     public OrdemVenda() {}
 
-    public OrdemVenda(Integer id, LocalDateTime diaCreate, LocalDateTime diaUpdate, OrdemVendaStatus ordemVendaStatus, Cliente cliente, List<Item> item, Agendamento agendamento, TipoTransporte tipoTransporte) {
+    public OrdemVenda(Integer id, LocalDateTime diaCreate, LocalDateTime diaUpdate, OrdemVendaStatus ordemVendaStatus, Client client, List<Item> item, Agendamento agendamento, TipoTransporte tipoTransporte) {
         this.id = id;
         this.diaCreate = diaCreate;
         this.diaUpdate = diaUpdate;
         this.ordemVendaStatus = ordemVendaStatus;
-        this.cliente = cliente;
+        this.client = client;
         this.item = item;
         this.agendamento = agendamento;
         this.tipoTransporte = tipoTransporte;
@@ -82,12 +82,12 @@ public class OrdemVenda { // Ordem de venda
         this.ordemVendaStatus = ordemVendaStatus;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Client getCliente() {
+        return client;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCliente(Client client) {
+        this.client = client;
     }
 
     public List<Item> getItem() {

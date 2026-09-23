@@ -2,7 +2,6 @@ package com.api.ovgs.service;
 
 import com.api.ovgs.dto.TipoTransporteRequestDTO;
 import com.api.ovgs.dto.TipoTransporteResponseDTO;
-import com.api.ovgs.entity.Cliente;
 import com.api.ovgs.entity.TipoTransporte;
 import com.api.ovgs.repository.TipoTransporteRepository;
 import jakarta.validation.constraints.NotNull;

@@ -67,6 +67,6 @@ public class OrdemVendaResquetDTO {
         this.tipoTransporte = tipoTransporte;
     }
 
-    public OrdemVenda ordemVendaIntidade(Cliente cliente, Agendamento agendamento) {
-        return new OrdemVenda(null, this.diaCreate, this.diaUpdate, this.ordemVendaStatus, cliente, null, agendamento, null);    }
+    public OrdemVenda ordemVendaIntidade(Client client, Agendamento agendamento) {
+        return new OrdemVenda(null, this.diaCreate, this.diaUpdate, this.ordemVendaStatus, client, null, agendamento, null);    }
 }
