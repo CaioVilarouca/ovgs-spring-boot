@@ -1,7 +1,6 @@
 package com.api.ovgs.dto;
 
-import com.api.ovgs.entity.TipoTransporte;
-import jakarta.persistence.Column;
+import com.api.ovgs.entity.TypeTransport;
 
 public class TipoTransporteResponseDTO {
 
@@ -13,11 +12,11 @@ public class TipoTransporteResponseDTO {
 
     private boolean ativo;
 
-    public TipoTransporteResponseDTO(TipoTransporte tipoTransporte) {
-        this.id = tipoTransporte.getId();
-        this.nome = tipoTransporte.getNome();
-        this.descricao = tipoTransporte.getDescricao();
-        this.ativo = tipoTransporte.isAtivo();
+    public TipoTransporteResponseDTO(TypeTransport typeTransport) {
+        this.id = typeTransport.getId();
+        this.nome = typeTransport.getNome();
+        this.descricao = typeTransport.getDescricao();
+        this.ativo = typeTransport.isAtivo();
     }
 
     public Integer getId() {

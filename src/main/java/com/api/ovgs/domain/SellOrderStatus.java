@@ -1,6 +1,6 @@
 package com.api.ovgs.domain;
 
-public enum OrdemVendaStatus { // Status Ordem de Venda
+public enum SellOrderStatus { // Status Ordem de Venda
 	CRIADO,
 	PLANEJADA,
 	AGENDADA,

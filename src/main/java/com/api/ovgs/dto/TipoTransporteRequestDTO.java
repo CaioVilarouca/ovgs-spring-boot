@@ -1,6 +1,6 @@
 package com.api.ovgs.dto;
 
-import com.api.ovgs.entity.TipoTransporte;
+import com.api.ovgs.entity.TypeTransport;
 
 public class TipoTransporteRequestDTO {
 
@@ -28,7 +28,7 @@ public class TipoTransporteRequestDTO {
         this.ativo = ativo;
     }
 
-    public TipoTransporte tipoTransporteEntidade() {
-        return new TipoTransporte(null, this.nome, this.descricao, this.ativo);
+    public TypeTransport tipoTransporteEntidade() {
+        return new TypeTransport(null, this.nome, this.descricao, this.ativo);
     }
 }

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name="tb_tipoTransporte")
-public class TipoTransporte {
+public class TypeTransport {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,9 +19,9 @@ public class TipoTransporte {
     @Column(nullable = false)
     private boolean ativo;
 
-    public TipoTransporte(){}
+    public TypeTransport(){}
 
-    public TipoTransporte(Integer id, String nome, String descricao, boolean ativo) {
+    public TypeTransport(Integer id, String nome, String descricao, boolean ativo) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
