@@ -19,7 +19,7 @@ public class ClientService {
     }
 
    public ClientResponseDTO clientCreate(@NonNull ClientRequestDTO clientRequestDTO) {
-       /* Client clienteRequest = clientRequestDTO.clienteEntidade(); = Conversão DTO para entidade
+        /* Client clienteRequest = clientRequestDTO.clienteEntidade(); = Conversão DTO para entidade
           Client clienteSave = clienteRepository.save(clienteRequest); = Repository recebe a entidade
           ClientResponseDTO clienteReponseDTO = new ClientResponseDTO(clienteSave); = Conversão Entidade para DTO */
        return new ClientResponseDTO(clientRepository.save(clientRequestDTO.toEntity()));
@@ -29,4 +29,5 @@ public class ClientService {
    public Optional<Client> findById(Integer id) {
      return clientRepository.findById(id);
    }
+
 }

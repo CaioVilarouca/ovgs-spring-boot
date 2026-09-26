@@ -29,6 +29,7 @@ public class SellOrderService {
         Client clientId = clientService.findById(sellOrderResquetDTO.getClienteId()).get();
         Scheduling schedulingId = schedulingService.findById(sellOrderResquetDTO.getSchedulingId()).get();
         TypeTransport typeTransportId = typeTransportService.findById(sellOrderResquetDTO.getTypeTransportId()).get();
+
         // Repository recebe a entidade
         SellOrder resquet = sellOrderResquetDTO.toEntity(clientId, schedulingId, typeTransportId);
         // Repository recebe a entidade
