@@ -7,6 +7,7 @@ import com.api.ovgs.repository.ClientRepository;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,4 +31,8 @@ public class ClientService {
      return clientRepository.findById(id);
    }
 
+   // Retorna todos os registros pelo ID
+   public List<ClientResponseDTO> findAll() {
+        return clientRepository.findAll().stream().map(ClientResponseDTO::new).toList();
+   }
 }
