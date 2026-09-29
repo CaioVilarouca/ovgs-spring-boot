@@ -6,6 +6,8 @@ import com.api.ovgs.entity.Client;
 import com.api.ovgs.repository.ClientRepository;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,8 +29,13 @@ public class ClientService {
    }
 
    // Buscar por ID. Obs: Pode ou não retorna algo
-   public Optional<Client> findById(Integer id) {
-     return clientRepository.findById(id);
+   public ClientResponseDTO findById(Integer id) {
+       Optional<Client> client = clientRepository.findById(id);
+       if (client.isPresent()) {
+           return new ClientResponseDTO(client.get());
+       } else {
+           throw new IllegalArgumentException("Cliente não encontrado.");
+       }
    }
 
    // Retorna todos os registros pelo ID

@@ -31,10 +31,12 @@ public class SellOrder { // Ordem de venda
     @ManyToMany // Muitos para muitos
     private List<Item> item;
 
-    @OneToOne // Um para um
+    @ManyToOne // muitos registros desta entidade podem estar ligados a um mesmo registro de outra entidade
+    @JoinColumn(name = "scheduling_id")
     private Scheduling scheduling;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "type_transport_id")
     private TypeTransport typeTransport;
 
     public SellOrder() {}
