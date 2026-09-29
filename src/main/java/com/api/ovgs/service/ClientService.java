@@ -3,6 +3,7 @@ package com.api.ovgs.service;
 import com.api.ovgs.dto.ClientRequestDTO;
 import com.api.ovgs.dto.ClientResponseDTO;
 import com.api.ovgs.entity.Client;
+import com.api.ovgs.exception.FindByIdException;
 import com.api.ovgs.repository.ClientRepository;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
@@ -34,11 +35,11 @@ public class ClientService {
        if (client.isPresent()) {
            return new ClientResponseDTO(client.get());
        } else {
-           throw new IllegalArgumentException("Cliente não encontrado.");
+           throw new FindByIdException("Cliente não encontrado.");
        }
    }
 
-   // Retorna todos os registros pelo ID
+   // Retorna todos os registros pelo IDs
    public List<ClientResponseDTO> findAll() {
         return clientRepository.findAll().stream().map(ClientResponseDTO::new).toList();
    }
