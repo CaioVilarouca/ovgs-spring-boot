@@ -19,6 +19,7 @@ public class SellOrderResponseDTO {
     private Integer clienteId;
 
     private List<Item> item;
+
     private Integer schedulingId;
 
     private Integer typeTransportId;

@@ -21,7 +21,7 @@ public class SellOrderResquetDTO {
 
     private Integer clienteId;
 
-    private List<Item> item;
+    private List<ItemOrderRequestDTO> item;
 
     private Integer schedulingId;
 
@@ -67,11 +67,11 @@ public class SellOrderResquetDTO {
         this.clienteId = clienteId;
     }
 
-    public List<Item> getItem() {
+    public List<ItemOrderRequestDTO> getItem() {
         return item;
     }
 
-    public void setItem(List<Item> item) {
+    public void setItem(List<ItemOrderRequestDTO> item) {
         this.item = item;
     }
 
@@ -91,7 +91,7 @@ public class SellOrderResquetDTO {
         this.typeTransportId = typeTransportId;
     }
 
-    public SellOrder toEntity(Client client, Scheduling scheduling, TypeTransport typeTransport) {
-        return new SellOrder(typeTransport, scheduling, null, client, this.sellOrderStatus, this.dayUpdate, this.dayCreate, null);
+    public SellOrder toEntity(Client client, Scheduling scheduling, TypeTransport typeTransport, List<Item> item) {
+        return new SellOrder(typeTransport, scheduling, item, client, this.sellOrderStatus, this.dayUpdate, this.dayCreate, null);
     }
 }
