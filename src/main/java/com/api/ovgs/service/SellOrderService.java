@@ -35,21 +35,12 @@ public class SellOrderService {
         Scheduling schedulingId = schedulingService.findById(sellOrderResquetDTO.getSchedulingId()).get();
         TypeTransport typeTransportId = typeTransportService.findById(sellOrderResquetDTO.getTypeTransportId()).get();
 
-        SellOrderResquetDTO dto;
-        if (sellOrderResquetDTO.getItem() == null || sellOrderResquetDTO.getItem().isEmpty()) {
-            throw new IllegalArgumentException("Informe pelo menos um item para a ordem de venda.");
-        }
-
+        // Retorna os registro de Items
         List<Item> itemsId = sellOrderResquetDTO.getItem()
                 .stream()
-                .map(item -> {
-                    if (item == null || item.getId() == null) {
-                        throw new FindByIdException("Informe o ID de cada item.");
-                    }
-
-                    return itemService.findById(item.getId())
-                            .orElseThrow(() -> new FindByIdException("Item não encontrado: " + item.getId()));
-                })
+                .map(item -> itemService.findById(item.getId())
+                        .orElseThrow(() ->
+                                new FindByIdException("Item não encontrado.")))
                 .toList();
         
         // Repository recebe a entidade
