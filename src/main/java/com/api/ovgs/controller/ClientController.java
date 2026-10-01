@@ -20,7 +20,12 @@ public class ClientController { // Cliente
     // Criar Cliente
     @PostMapping
     public ClientResponseDTO create(@RequestBody ClientRequestDTO clientRequestDTO) {
-      return clientService.clientCreate(clientRequestDTO);
+        try {
+            return clientService.clientCreate(clientRequestDTO);
+        }
+        catch (Exception e) {
+            throw new IllegalArgumentException("Não foi possível salvar o cadastro de cleinte. "+ e);
+        }
     }
 
     // Retorna todos os IDs

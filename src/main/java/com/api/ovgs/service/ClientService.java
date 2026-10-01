@@ -34,7 +34,7 @@ public class ClientService {
        if (client.isPresent()) {
            return new ClientResponseDTO(client.get());
        } else {
-           throw new FindByIdException("Cliente não encontrado");
+           throw new FindByIdException("Cliente não encontrado. ID = "+ id);
        }
    }
 
