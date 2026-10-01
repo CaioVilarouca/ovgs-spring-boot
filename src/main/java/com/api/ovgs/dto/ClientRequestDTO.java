@@ -10,9 +10,8 @@ public class ClientRequestDTO {
 
     private String email;
 
-    private String document;
-
     private boolean active;
+
 
     public boolean isActive() {
         return active;
@@ -28,14 +27,6 @@ public class ClientRequestDTO {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getDocument() {
-        return document;
-    }
-
-    public void setDocument(String document) {
-        this.document = document;
     }
 
     public String getName() {
@@ -55,6 +46,6 @@ public class ClientRequestDTO {
     }
 
     public Client toEntity(){
-        return new Client(null, this.name, this.email, this.document, this.active);
+        return new Client(null, this.name, this.email, this.active);
     }
 }

@@ -21,7 +21,7 @@ public class SellOrderResquetDTO {
 
     private Integer clienteId;
 
-    private List<ItemOrderRequestDTO> item;
+    private List<ItemSellOrderRequestDTO> item;
 
     private Integer schedulingId;
 
@@ -67,11 +67,11 @@ public class SellOrderResquetDTO {
         this.clienteId = clienteId;
     }
 
-    public List<ItemOrderRequestDTO> getItem() {
+    public List<ItemSellOrderRequestDTO> getItem() {
         return item;
     }
 
-    public void setItem(List<ItemOrderRequestDTO> item) {
+    public void setItem(List<ItemSellOrderRequestDTO> item) {
         this.item = item;
     }
 

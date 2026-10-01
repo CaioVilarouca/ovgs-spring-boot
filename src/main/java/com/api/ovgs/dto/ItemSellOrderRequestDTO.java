@@ -1,6 +1,6 @@
 package com.api.ovgs.dto;
 
-public class ItemOrderRequestDTO {
+public class ItemSellOrderRequestDTO {
 
     private Integer id;
 

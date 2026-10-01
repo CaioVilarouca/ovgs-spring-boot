@@ -16,20 +16,16 @@ public class Client { // Cliente
 
 	@Column(length = 150, unique = true) // unique = true: não pode haver dois registros com o mesmo documento
 	private String email;
-	
-	@Column(nullable = false, length = 20)
-	private String document;
     
     @Column(nullable = false) 
 	private boolean active;
     
     public Client() {}
 
-	public Client(Integer id, String name, String email, String document, boolean active) {
+	public Client(Integer id, String name, String email, boolean active) {
 		this.id = id;
 		this.name = name;
 		this.email = email;
-		this.document = document;
 		this.active = active;
 	}
 
@@ -47,14 +43,6 @@ public class Client { // Cliente
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public String getDocument() {
-		return document;
-	}
-
-	public void setDocument(String document) {
-		this.document = document;
 	}
 
 	public String getEmail() {

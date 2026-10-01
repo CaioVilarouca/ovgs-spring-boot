@@ -757,3 +757,6 @@ DROP TABLE * TB_ORDEM_VENDA [42001-240]
 2026-09-29 20:24:55.160481-03:00 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE [*]* FROM TB_ORDEM_VENDA"; expected "identifier"; SQL statement:
 DELETE * FROM TB_ORDEM_VENDA [42001-240]
+2026-09-30 21:16:08.632015-03:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM TB_AGENDAMENTO TB_CLIENTE [*]TB_CLIENTE"; SQL statement:
+SELECT * FROM TB_AGENDAMENTO TB_CLIENTE TB_CLIENTE [42000-240]
