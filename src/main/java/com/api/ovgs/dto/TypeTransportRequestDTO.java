@@ -12,6 +12,7 @@ public class TypeTransportRequestDTO {
 
     private boolean active;
 
+
     public Integer getId() {
         return id;
     }

@@ -1,12 +1,12 @@
 package com.api.ovgs.controller;
 
+import com.api.ovgs.dto.ClientResponseDTO;
 import com.api.ovgs.dto.TypeTransportRequestDTO;
 import com.api.ovgs.dto.TypeTransportResponseDTO;
 import com.api.ovgs.service.TypeTransportService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/typeTransport")
@@ -21,5 +21,11 @@ public class TypeTransportController {
     @PostMapping
     public TypeTransportResponseDTO create(@RequestBody TypeTransportRequestDTO typeTransportRequestDTO) {
         return  typeTransportService.createTypeTransport(typeTransportRequestDTO);
+    }
+    
+    // Retorna todos os transporte
+    @GetMapping
+    public List<TypeTransportResponseDTO> findAll() {
+        return typeTransportService.findAll();
     }
 }

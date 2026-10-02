@@ -1,5 +1,6 @@
 package com.api.ovgs.service;
 
+import com.api.ovgs.dto.ClientResponseDTO;
 import com.api.ovgs.dto.TypeTransportRequestDTO;
 import com.api.ovgs.dto.TypeTransportResponseDTO;
 import com.api.ovgs.entity.TypeTransport;
@@ -7,6 +8,7 @@ import com.api.ovgs.repository.TypeTransportRepository;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,5 +27,13 @@ public class TypeTransportService {
     // Pode ou não retorna alguma coisa
     public Optional<TypeTransport> findById(Integer id) {
         return typeTransportRepository.findById(id);
+    }
+
+    // Retorna todos os registros pelo IDs
+    public List<TypeTransportResponseDTO> findAll() {
+        return typeTransportRepository.findAll()
+                .stream()
+                .map(TypeTransportResponseDTO::new)
+                .toList();
     }
 }
