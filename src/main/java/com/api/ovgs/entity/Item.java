@@ -20,17 +20,29 @@ public class Item {
 	
 	@Column(length = 255)
 	private String description;
+
+	@Column(unique = true, length = 48)
+	private String sku;
 	
 	@Column(nullable = false)
 	private boolean active;
-	
+
+	@Column(nullable = false)
+	private Double price;
+
+	@Column(nullable = false)
+	private Integer amount;
+
 	public Item() {}
 
-	public Item(Integer id, String name, String description, boolean active) {
+	public Item(Integer id, String name, String description, String sku, boolean active, Double price, Integer amount) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
+		this.sku = sku;
 		this.active = active;
+		this.price = price;
+		this.amount = amount;
 	}
 
 	public Integer getId() {
@@ -57,11 +69,39 @@ public class Item {
 		this.description = description;
 	}
 
+	public String getSku() {
+		return sku;
+	}
+
+	public void setSku(String sku) {
+		this.sku = sku;
+	}
+
 	public boolean isActive() {
 		return active;
 	}
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	public double subTotal() {
+		return price * amount;
 	}
 }

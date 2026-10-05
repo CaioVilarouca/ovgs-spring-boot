@@ -10,13 +10,22 @@ public class ItemReponseDTO {
 
     private String description;
 
+    private String sku;
+
     private boolean active;
+
+    private Double price;
+
+    private Integer amount;
 
     public ItemReponseDTO(Item item) {
         this.id = item.getId();
         this.name = item.getName();
         this.description = item.getDescription();
+        this.sku = item.getSku();
         this.active = item.isActive();
+        this.price = item.getPrice();
+        this.amount = item.getAmount();
     }
 
     public Integer getId() {
@@ -43,11 +52,35 @@ public class ItemReponseDTO {
         this.description = description;
     }
 
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
     public boolean isActive() {
         return active;
     }
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 }
