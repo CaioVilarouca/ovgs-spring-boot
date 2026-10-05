@@ -6,6 +6,7 @@ import com.api.ovgs.entity.Client;
 import com.api.ovgs.exception.FindByIdException;
 import com.api.ovgs.repository.ClientRepository;
 import org.jspecify.annotations.NonNull;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,10 +22,14 @@ public class ClientService {
     }
 
    public ClientResponseDTO clientCreate(@NonNull ClientRequestDTO clientRequestDTO) {
-
-        Client clientRequest = clientRequestDTO.toEntity(); // Conversão DTO para entidade
-        Client clientSave = clientRepository.save(clientRequest); // Repository recebe a entidade
-        return new ClientResponseDTO(clientSave); // Conversão Entidade para DTO
+        try {
+            Client clientRequest = clientRequestDTO.toEntity(); // Conversão DTO para entidade
+            Client clientSave = clientRepository.save(clientRequest); // Repository recebe a entidade
+            return new ClientResponseDTO(clientSave); // Conversão Entidade para DTO
+        }
+        catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("Não foi possível salvar o cadastro de cleinte. "+ e.getMessage());
+        }
    }
 
    // Buscar por ID. Obs: Pode ou não retorna algo
