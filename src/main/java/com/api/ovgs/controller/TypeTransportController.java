@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/typeTransport")
+//@RequestMapping("api/typeTransport")
 public class TypeTransportController {
 
     private final TypeTransportService typeTransportService;

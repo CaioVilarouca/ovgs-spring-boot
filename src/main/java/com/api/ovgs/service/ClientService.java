@@ -22,14 +22,21 @@ public class ClientService {
     }
 
    public ClientResponseDTO clientCreate(@NonNull ClientRequestDTO clientRequestDTO) {
-        try {
-            Client clientRequest = clientRequestDTO.toEntity(); // Conversão DTO para entidade
-            Client clientSave = clientRepository.save(clientRequest); // Repository recebe a entidade
-            return new ClientResponseDTO(clientSave); // Conversão Entidade para DTO
-        }
-        catch (DataIntegrityViolationException e) {
-            throw new IllegalArgumentException("Não foi possível salvar o cadastro de cleinte. "+ e.getMessage());
-        }
+
+       if (clientRepository.existsByEmail(clientRequestDTO.getEmail())) {
+           throw new IllegalArgumentException("E-mail já cadastrado");
+       }
+
+       if (!clientRequestDTO.isActive()) {
+           throw new IllegalArgumentException("Cadastro do cliente não pode ser criado DESATIVADO");
+       }
+
+       try {
+           return new ClientResponseDTO(clientRepository.save(clientRequestDTO.toEntity()));
+       }
+       catch (DataIntegrityViolationException e) {
+           throw new IllegalArgumentException("Não foi possível cadastrar o cliente devido a uma violação de dados");
+       }
    }
 
    // Buscar por ID. Obs: Pode ou não retorna algo

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository // Uma interface para acessar o banco de dados
 public interface ClientRepository extends JpaRepository<Client, Integer> {
+    boolean existsByEmail(String email);
 }

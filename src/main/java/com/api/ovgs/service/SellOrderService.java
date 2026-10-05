@@ -36,13 +36,15 @@ public class SellOrderService {
         TypeTransport typeTransportId = typeTransportService.findById(sellOrderResquetDTO.getTypeTransportId()).get();
 
         // Retorna os registro de Items
+        /*
         List<Item> itemsId = sellOrderResquetDTO.getItem()
                 .stream()
                 .map(item -> itemService.findById(item.getId())
                         .orElseThrow(() ->
                                 new FindByIdException("Item não encontrado.")))
                 .toList();
-        
+        */
+        List<Item> itemsId = null;
         // Repository recebe a entidade
         SellOrder resquet = sellOrderResquetDTO.toEntity(clientId, schedulingId, typeTransportId, itemsId);
         // Repository recebe a entidade
