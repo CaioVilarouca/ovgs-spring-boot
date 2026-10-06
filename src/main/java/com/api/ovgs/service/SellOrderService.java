@@ -33,7 +33,7 @@ public class SellOrderService {
         // findById = buscar por id
         Client clientId = clientRepository.findById(sellOrderResquetDTO.getClienteId()).get();
         Scheduling schedulingId = schedulingService.findById(sellOrderResquetDTO.getSchedulingId()).get();
-        TypeTransport typeTransportId = typeTransportService.findById(sellOrderResquetDTO.getTypeTransportId()).get();
+       // TypeTransport typeTransportId = typeTransportService.findById(sellOrderResquetDTO.getTypeTransportId()).get();
 
         // Retorna os registro de Items
         /*
@@ -45,6 +45,7 @@ public class SellOrderService {
                 .toList();
         */
         List<Item> itemsId = null;
+        TypeTransport typeTransportId = null;
         // Repository recebe a entidade
         SellOrder resquet = sellOrderResquetDTO.toEntity(clientId, schedulingId, typeTransportId, itemsId);
         // Repository recebe a entidade

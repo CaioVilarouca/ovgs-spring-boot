@@ -83,6 +83,6 @@ public class SellOrderResquetDTO {
     }
 
     public SellOrder toEntity(Client client, Scheduling scheduling, TypeTransport typeTransport, List<Item> item) {
-        return new SellOrder(typeTransport, scheduling, null, client, this.sellOrderStatus, this.dayUpdate, this.dayCreate, null);
+        return new SellOrder(null, scheduling, null, client, this.sellOrderStatus, this.dayUpdate, this.dayCreate, null);
     }
 }

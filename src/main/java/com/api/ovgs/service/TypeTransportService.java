@@ -29,11 +29,11 @@ public class TypeTransportService {
         return typeTransportRepository.findById(id);
     }
 
-    // Retorna todos os registros pelo IDs
+    /* Retorna todos os registros pelo IDs
     public List<TypeTransportResponseDTO> findAll() {
         return typeTransportRepository.findAll()
                 .stream()
                 .map(TypeTransportResponseDTO::new)
                 .toList();
-    }
+    }*/
 }
