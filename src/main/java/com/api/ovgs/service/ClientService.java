@@ -69,10 +69,7 @@ public class ClientService {
     // Atualizar dados de cliente
     public ClientResponseDTO update(Integer id, ClientRequestDTO clientRequestDTO) {
 
-        Client client = clientRepository.findById(id)
-                .orElseThrow(() ->
-                        new FindByIdException("Cliente não encontrado ID= "+id)
-                );
+        Client client = clientRepository.findById(id).orElseThrow(() -> new FindByIdException("Cliente não encontrado ID= "+id));
 
         client.setName(clientRequestDTO.getName());
         client.setEmail(clientRequestDTO.getEmail());

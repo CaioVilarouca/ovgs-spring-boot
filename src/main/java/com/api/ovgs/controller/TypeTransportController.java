@@ -1,5 +1,6 @@
 package com.api.ovgs.controller;
 
+import com.api.ovgs.dto.ClientRequestDTO;
 import com.api.ovgs.dto.ClientResponseDTO;
 import com.api.ovgs.dto.TypeTransportRequestDTO;
 import com.api.ovgs.dto.TypeTransportResponseDTO;
@@ -36,5 +37,14 @@ public class TypeTransportController { // Tipo de transporte
     @GetMapping("/{id}")
     public Optional<TypeTransport> findById(@PathVariable Integer id) {
         return typeTransportService.findById(id);
+    }
+
+    // Atualizar dados de transporte
+    @PutMapping("/{id}")
+    public TypeTransportResponseDTO update(
+            @PathVariable Integer id,
+            @RequestBody TypeTransportRequestDTO typeTransportRequestDTO
+    ) {
+        return typeTransportService.update(id, typeTransportRequestDTO);
     }
 }
