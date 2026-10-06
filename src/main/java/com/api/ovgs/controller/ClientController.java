@@ -38,4 +38,13 @@ public class ClientController { // Cliente
       return clientService.findById(id);
     }
 
+
+    // Atualizar dados de cliente
+    @PutMapping("/{id}")
+    public ClientResponseDTO update(
+            @PathVariable Integer id,
+            @RequestBody ClientRequestDTO clientRequestDTO
+    ) {
+        return clientService.update(id, clientRequestDTO);
+    }
 }
