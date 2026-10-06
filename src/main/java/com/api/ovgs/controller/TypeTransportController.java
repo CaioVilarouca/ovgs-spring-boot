@@ -25,19 +25,16 @@ public class TypeTransportController { // Tipo de transporte
     public TypeTransportResponseDTO create(@RequestBody TypeTransportRequestDTO typeTransportRequestDTO) {
         return  typeTransportService.createTypeTransport(typeTransportRequestDTO);
     }
+
+    // Retorna todos os transporte
+    @GetMapping
+    public List<TypeTransportResponseDTO> findAll() {
+        return typeTransportService.findAll();
+    }
     
     // Retorna um ID específico
     @GetMapping("/{id}")
     public Optional<TypeTransport> findById(@PathVariable Integer id) {
         return typeTransportService.findById(id);
     }
-
-    /*
-    // Retorna todos os transporte
-    @GetMapping
-    public List<TypeTransportResponseDTO> findAll() {
-        return typeTransportService.findAll();
-    }
-    /*
-     */
 }

@@ -23,9 +23,7 @@ public class ItemService {
         return new ItemReponseDTO(itemRepository.save(itemResquestDTO.itemEntidade()));
     }
 
-    /*
     public Optional<Item> findById(Integer id) {
         return itemRepository.findById(id);
     }
-    */
 }
