@@ -57,4 +57,12 @@ public class ClientService {
                 .map(ClientResponseDTO::new)
                 .toList();
    }
+
+    // Retorna clientes ativos ou inativos
+    public List<ClientResponseDTO> findByActive(boolean active) {
+        return clientRepository.findByActive(active)
+                .stream()
+                .map(ClientResponseDTO::new)
+                .toList();
+    }
 }

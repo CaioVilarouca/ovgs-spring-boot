@@ -23,10 +23,13 @@ public class ClientController { // Cliente
         return clientService.clientCreate(clientRequestDTO);
     }
 
-    // Retorna todos os IDs
+    // Retorna todos os IDs [ATIVOS] e não [Ñ ATIVOS]
     @GetMapping
-    public List<ClientResponseDTO> findAll() {
-        return clientService.findAll();
+    public List<ClientResponseDTO> findAll(@RequestParam(required = false) Boolean active) {
+        if (active == null) {
+            return clientService.findAll();
+        }
+        return clientService.findByActive(active);
     }
 
     // Buscar por ID específico
