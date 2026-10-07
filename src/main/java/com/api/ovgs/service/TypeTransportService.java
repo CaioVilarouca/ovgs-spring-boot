@@ -1,10 +1,7 @@
 package com.api.ovgs.service;
 
-import com.api.ovgs.dto.ClientRequestDTO;
-import com.api.ovgs.dto.ClientResponseDTO;
 import com.api.ovgs.dto.TypeTransportRequestDTO;
 import com.api.ovgs.dto.TypeTransportResponseDTO;
-import com.api.ovgs.entity.Client;
 import com.api.ovgs.entity.TypeTransport;
 import com.api.ovgs.exception.FindByIdException;
 import com.api.ovgs.repository.TypeTransportRepository;

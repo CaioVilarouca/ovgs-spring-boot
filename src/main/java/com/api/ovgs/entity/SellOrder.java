@@ -29,7 +29,7 @@ public class SellOrder { // Ordem de venda
     private Client client;
 
     @ManyToMany // Muitos para muitos
-    private List<Item> item;
+   // private List<Item> item;
 
     @ManyToOne // muitos registros desta entidade podem estar ligados a um mesmo registro de outra entidade
     @JoinColumn(name = "scheduling_id")
@@ -44,7 +44,7 @@ public class SellOrder { // Ordem de venda
     public SellOrder(TypeTransport typeTransport, Scheduling scheduling, List<Item> item, Client client, SellOrderStatus sellOrderStatus, LocalDateTime dayUpdate, LocalDateTime dayCreate, Integer id) {
         this.typeTransport = typeTransport;
         this.scheduling = scheduling;
-        this.item = item;
+       // this.item = item;
         this.client = client;
         this.sellOrderStatus = sellOrderStatus;
         this.dayUpdate = dayUpdate;
@@ -90,14 +90,6 @@ public class SellOrder { // Ordem de venda
 
     public void setClient(Client client) {
         this.client = client;
-    }
-
-    public List<Item> getItem() {
-        return item;
-    }
-
-    public void setItem(List<Item> item) {
-        this.item = item;
     }
 
     public Scheduling getScheduling() {

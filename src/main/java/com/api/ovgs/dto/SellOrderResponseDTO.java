@@ -30,7 +30,7 @@ public class SellOrderResponseDTO {
         this.dayUpdate = sellOrder.getDayUpdate();
         this.sellOrderStatus = sellOrder.getSellOrderStatus();
         this.clienteId = sellOrder.getClient().getId();
-        this.item = sellOrder.getItem();
+       // this.item = sellOrder.getItem();
         this.schedulingId = sellOrder.getScheduling().getId();
         this.typeTransportId = sellOrder.getTypeTransport().getId();
     }

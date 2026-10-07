@@ -4,7 +4,6 @@ import com.api.ovgs.domain.SchedulingStatus;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Entity
 @Table(name="tb_agendamento")
@@ -15,14 +14,7 @@ public class Scheduling {
     private Integer id;
 
     @Column(nullable = false)
-    //@JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateDelivery;
-
-    @Column(nullable = false)
-    private LocalTime windowsStart;
-
-    @Column(nullable = false)
-    private LocalTime windowsFinish;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
@@ -30,11 +22,9 @@ public class Scheduling {
 
     public Scheduling(){}
 
-    public Scheduling(Integer id, LocalDate dateDelivery, LocalTime windowsStart, LocalTime windowsFinish, SchedulingStatus schedulingStatus) {
+    public Scheduling(Integer id, LocalDate dateDelivery, SchedulingStatus schedulingStatus) {
         this.id = id;
         this.dateDelivery = dateDelivery;
-        this.windowsStart = windowsStart;
-        this.windowsFinish = windowsFinish;
         this.schedulingStatus = schedulingStatus;
     }
 
@@ -52,22 +42,6 @@ public class Scheduling {
 
     public void setDateDelivery(LocalDate dateDelivery) {
         this.dateDelivery = dateDelivery;
-    }
-
-    public LocalTime getWindowsStart() {
-        return windowsStart;
-    }
-
-    public void setWindowsStart(LocalTime windowsStart) {
-        this.windowsStart = windowsStart;
-    }
-
-    public LocalTime getWindowsFinish() {
-        return windowsFinish;
-    }
-
-    public void setWindowsFinish(LocalTime windowsFinish) {
-        this.windowsFinish = windowsFinish;
     }
 
     public SchedulingStatus getSchedulingStatus() {

@@ -5,7 +5,6 @@ import com.api.ovgs.entity.Scheduling;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class SchedulingResquetDTO {
 
@@ -14,18 +13,14 @@ public class SchedulingResquetDTO {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateDelivery;
 
-    private LocalTime windowsStart;
-
-    private LocalTime windowsFinish;
-
     private SchedulingStatus schedulingStatus;
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public LocalDate getDateDelivery() {
@@ -34,22 +29,6 @@ public class SchedulingResquetDTO {
 
     public void setDateDelivery(LocalDate dateDelivery) {
         this.dateDelivery = dateDelivery;
-    }
-
-    public LocalTime getWindowsStart() {
-        return windowsStart;
-    }
-
-    public void setWindowsStart(LocalTime windowsStart) {
-        this.windowsStart = windowsStart;
-    }
-
-    public LocalTime getWindowsFinish() {
-        return windowsFinish;
-    }
-
-    public void setWindowsFinish(LocalTime windowsFinish) {
-        this.windowsFinish = windowsFinish;
     }
 
     public SchedulingStatus getSchedulingStatus() {
@@ -61,6 +40,6 @@ public class SchedulingResquetDTO {
     }
 
     public Scheduling toEntity() {
-        return new Scheduling(null, this.dateDelivery, this.windowsStart, this.windowsFinish, this.schedulingStatus);
+        return new Scheduling(null, this.dateDelivery, SchedulingStatus.PENDENTE.getKey());
     }
 }

@@ -5,5 +5,5 @@ public enum SellOrderStatus { // Status Ordem de Venda
 	PLANEJADA,
 	AGENDADA,
 	EM_TRANSPORTE,
-	ENTREGUE
+	ENTREGUE;
 }

@@ -12,17 +12,11 @@ public class SchedulingReponseDTO {
 
     private LocalDate diaDelivery;
 
-    private LocalTime windowsStart;
-
-    private LocalTime windowsFinish;
-
     private SchedulingStatus schedulingStatus;
 
     public SchedulingReponseDTO(Scheduling scheduling) {
         this.id = scheduling.getId();
         this.diaDelivery = scheduling.getDateDelivery();
-        this.windowsStart = scheduling.getWindowsStart();
-        this.windowsFinish = scheduling.getWindowsFinish();
         this.schedulingStatus = scheduling.getSchedulingStatus();
     }
 
@@ -40,22 +34,6 @@ public class SchedulingReponseDTO {
 
     public void setDiaDelivery(LocalDate diaDelivery) {
         this.diaDelivery = diaDelivery;
-    }
-
-    public LocalTime getWindowsStart() {
-        return windowsStart;
-    }
-
-    public void setWindowsStart(LocalTime windowsStart) {
-        this.windowsStart = windowsStart;
-    }
-
-    public LocalTime getWindowsFinish() {
-        return windowsFinish;
-    }
-
-    public void setWindowsFinish(LocalTime windowsFinish) {
-        this.windowsFinish = windowsFinish;
     }
 
     public SchedulingStatus getSchedulingStatus() {

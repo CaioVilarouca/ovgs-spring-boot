@@ -1,7 +1,5 @@
 package com.api.ovgs.controller;
 
-import com.api.ovgs.dto.ClientRequestDTO;
-import com.api.ovgs.dto.ClientResponseDTO;
 import com.api.ovgs.dto.TypeTransportRequestDTO;
 import com.api.ovgs.dto.TypeTransportResponseDTO;
 import com.api.ovgs.entity.TypeTransport;
