@@ -100,8 +100,4 @@ public class Item {
 	public void setAmount(Integer amount) {
 		this.amount = amount;
 	}
-
-	public double subTotal() {
-		return price * amount;
-	}
 }

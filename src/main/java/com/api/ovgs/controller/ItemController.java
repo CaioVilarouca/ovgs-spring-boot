@@ -2,11 +2,14 @@ package com.api.ovgs.controller;
 
 import com.api.ovgs.dto.ItemReponseDTO;
 import com.api.ovgs.dto.ItemResquestDTO;
+import com.api.ovgs.entity.Item;
+import com.api.ovgs.entity.TypeTransport;
 import com.api.ovgs.service.ItemService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/item")
@@ -18,8 +21,21 @@ public class ItemController {
         this.itemService = itemService;
     }
 
+    // Criar item
     @PostMapping
     public ItemReponseDTO create(@RequestBody ItemResquestDTO itemResquestDTO) {
         return itemService.createItem(itemResquestDTO);
+    }
+
+    // Retorna todos os IDs
+    @GetMapping
+    public List<ItemReponseDTO> findAll() {
+        return itemService.findAll();
+    }
+
+    // Retorna um ID específico
+    @GetMapping("/{id}")
+    public Optional<Item> findById(@PathVariable Integer id) {
+        return itemService.findById(id);
     }
 }
