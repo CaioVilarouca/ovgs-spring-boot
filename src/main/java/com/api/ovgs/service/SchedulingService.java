@@ -7,7 +7,7 @@ import com.api.ovgs.repository.SchedulingRepository;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import java.time.LocalDate;
 
 @Service
 public class SchedulingService {
@@ -18,8 +18,14 @@ public class SchedulingService {
         this.schedulingRepository = schedulingRepository;
     }
 
-    public SchedulingReponseDTO createScheduling(@NotNull SchedulingResquetDTO schedulingResquetDTO){
-        return new SchedulingReponseDTO(schedulingRepository.save(schedulingResquetDTO.toEntity()));
+    // Criar agendamento
+    public SchedulingReponseDTO createScheduling(@NotNull SchedulingResquetDTO schedulingResquetDTO) {
+        if (schedulingResquetDTO.getDateDelivery().isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("A data de agendamento não pode ser anterior à data atual. Data inválida:" + schedulingResquetDTO.getDateDelivery());
+        }
+
+        Scheduling scheduling = schedulingResquetDTO.toEntity();
+        return new SchedulingReponseDTO(schedulingRepository.save(scheduling));
     }
 
     /* Pode ou não retorna alguma coisa
