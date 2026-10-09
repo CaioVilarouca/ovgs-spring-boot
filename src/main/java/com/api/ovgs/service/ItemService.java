@@ -2,6 +2,7 @@ package com.api.ovgs.service;
 
 import com.api.ovgs.dto.ItemReponseDTO;
 import com.api.ovgs.dto.ItemResquestDTO;
+import com.api.ovgs.dto.ItemTotalResponseDTO;
 import com.api.ovgs.entity.Item;
 import com.api.ovgs.repository.ItemRepository;
 import jakarta.validation.constraints.NotNull;
@@ -29,10 +30,17 @@ public class ItemService {
     }
 
     // Retorna todos os registros pelo IDs
-    public List<ItemReponseDTO> findAll() {
-        return itemRepository.findAll()
+    public ItemTotalResponseDTO findAll() {
+
+        List<ItemReponseDTO> items = itemRepository.findAll()
                 .stream()
                 .map(ItemReponseDTO::new)
                 .toList();
+
+        Double totalGeral = items.stream()
+                .mapToDouble(ItemReponseDTO::getSubtotal)
+                .sum();
+
+        return new ItemTotalResponseDTO(items, totalGeral);
     }
 }
