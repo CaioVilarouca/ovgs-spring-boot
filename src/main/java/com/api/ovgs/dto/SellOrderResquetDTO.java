@@ -9,6 +9,7 @@ public class SellOrderResquetDTO {
 
     private SellOrderStatus sellOrderStatus;
 
+    private Integer clientId;
 
     public Integer getId() {
         return id;
@@ -26,7 +27,16 @@ public class SellOrderResquetDTO {
         this.sellOrderStatus = sellOrderStatus;
     }
 
-    public SellOrder toEntity() {
-        return new SellOrder(null, SellOrderStatus.CRIADO.getKey());
+    public Integer getClientId() {
+        return clientId;
     }
+
+    public void setClientId(Integer clientId) {
+        this.clientId = clientId;
+    }
+
+    public SellOrder toEntity(Client client) {
+        return new SellOrder(null, SellOrderStatus.CRIADO.getKey(), client);
+    }
+
 }

@@ -14,11 +14,12 @@ public class SellOrder { // Ordem de venda
     @Column(nullable = false)
     private SellOrderStatus sellOrderStatus;
 
-    /* --------------------------------
+    // --------------------------------
     @ManyToOne // Muitos para um
     @JoinColumn(name = "cliente_id") // coluna que será usada para realizar a associação entre as tabelas
     private Client client;
 
+    /*
     @ManyToMany // Muitos para muitos
     // private List<Item> item;
 
@@ -33,9 +34,10 @@ public class SellOrder { // Ordem de venda
 
     public SellOrder() {}
 
-    public SellOrder(Integer id, SellOrderStatus sellOrderStatus) {
+    public SellOrder(Integer id, SellOrderStatus sellOrderStatus, Client client) {
         this.id = id;
         this.sellOrderStatus = sellOrderStatus;
+        this.client = client;
     }
 
     public Integer getId() {
@@ -52,5 +54,13 @@ public class SellOrder { // Ordem de venda
 
     public void setSellOrderStatus(SellOrderStatus sellOrderStatus) {
         this.sellOrderStatus = sellOrderStatus;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

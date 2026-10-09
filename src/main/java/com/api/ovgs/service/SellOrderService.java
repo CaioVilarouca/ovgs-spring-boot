@@ -15,20 +15,22 @@ import java.util.List;
 public class SellOrderService {
 
     private final SellOrderRepository sellOrderRepository;
+    private final ClientRepository clientRepository;
 
-    public SellOrderService(SellOrderRepository sellOrderRepository) {
+    public SellOrderService(SellOrderRepository sellOrderRepository, ClientRepository clientRepository) {
         this.sellOrderRepository = sellOrderRepository;
+        this.clientRepository = clientRepository;
     }
 
     @Transactional
     public SellOrderResponseDTO createSellOrder(SellOrderResquetDTO sellOrderResquetDTO){
-        // findById = buscar por id
-        //Client clientId = clientRepository.findById(sellOrderResquetDTO.getClienteId()).get();
+
+        Client clientId = clientRepository.findById(sellOrderResquetDTO.getClientId()).get();
         //Scheduling schedulingId = schedulingService.findById(sellOrderResquetDTO.getSchedulingId()).get();
-       // TypeTransport typeTransportId = typeTransportService.findById(sellOrderResquetDTO.getTypeTransportId()).get();
+        //TypeTransport typeTransportId = typeTransportService.findById(sellOrderResquetDTO.getTypeTransportId()).get();
 
         // Repository recebe a entidade
-        SellOrder resquet = sellOrderResquetDTO.toEntity();
+        SellOrder resquet = sellOrderResquetDTO.toEntity(clientId);
         // Repository recebe a entidade
         SellOrder sellOrder = sellOrderRepository.save(resquet);
         // Conversão Entidade para DTO
