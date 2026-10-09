@@ -3,9 +3,6 @@ package com.api.ovgs.entity;
 import com.api.ovgs.domain.SellOrderStatus;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
 @Entity
 @Table(name="tb_ordemVenda")
 public class SellOrder { // Ordem de venda
@@ -15,65 +12,30 @@ public class SellOrder { // Ordem de venda
     private Integer id;
 
     @Column(nullable = false)
-    private LocalDateTime dayCreate;
-
-    @Column(nullable = false)
-    private LocalDateTime dayUpdate;
-
-    @Column(nullable = false)
     private SellOrderStatus sellOrderStatus;
 
-    // --------------------------------
+    /* --------------------------------
     @ManyToOne // Muitos para um
     @JoinColumn(name = "cliente_id") // coluna que será usada para realizar a associação entre as tabelas
     private Client client;
 
     @ManyToMany // Muitos para muitos
-   // private List<Item> item;
+    // private List<Item> item;
 
-    @ManyToOne // muitos registros desta entidade podem estar ligados a um mesmo registro de outra entidade
+    // muitos registros desta entidade podem estar ligados a um mesmo registro de outra entidade
     @JoinColumn(name = "scheduling_id")
     private Scheduling scheduling;
 
     @ManyToOne
     @JoinColumn(name = "type_transport_id")
     private TypeTransport typeTransport;
+     */
 
     public SellOrder() {}
 
-    public SellOrder(TypeTransport typeTransport, Scheduling scheduling, List<Item> item, Client client, SellOrderStatus sellOrderStatus, LocalDateTime dayUpdate, LocalDateTime dayCreate, Integer id) {
-        this.typeTransport = typeTransport;
-        this.scheduling = scheduling;
-       // this.item = item;
-        this.client = client;
+    public SellOrder(Integer id, SellOrderStatus sellOrderStatus) {
+        this.id = id;
         this.sellOrderStatus = sellOrderStatus;
-        this.dayUpdate = dayUpdate;
-        this.dayCreate = dayCreate;
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public LocalDateTime getDayCreate() {
-        return dayCreate;
-    }
-
-    public void setDayCreate(LocalDateTime dayCreate) {
-        this.dayCreate = dayCreate;
-    }
-
-    public LocalDateTime getDayUpdate() {
-        return dayUpdate;
-    }
-
-    public void setDayUpdate(LocalDateTime dayUpdate) {
-        this.dayUpdate = dayUpdate;
     }
 
     public SellOrderStatus getSellOrderStatus() {
@@ -82,29 +44,5 @@ public class SellOrder { // Ordem de venda
 
     public void setSellOrderStatus(SellOrderStatus sellOrderStatus) {
         this.sellOrderStatus = sellOrderStatus;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public Scheduling getScheduling() {
-        return scheduling;
-    }
-
-    public void setScheduling(Scheduling scheduling) {
-        this.scheduling = scheduling;
-    }
-
-    public TypeTransport getTypeTransport() {
-        return typeTransport;
-    }
-
-    public void setTypeTransport(TypeTransport typeTransport) {
-        this.typeTransport = typeTransport;
     }
 }

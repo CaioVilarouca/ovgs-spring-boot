@@ -15,17 +15,9 @@ import java.util.List;
 public class SellOrderService {
 
     private final SellOrderRepository sellOrderRepository;
-    private final ClientRepository clientRepository;
-    private final SchedulingService schedulingService;
-    private final TypeTransportService typeTransportService;
-    private final ItemService itemService;
 
-    public SellOrderService(SellOrderRepository sellOrderRepository, ClientRepository clientRepository, SchedulingService schedulingService, TypeTransportService typeTransportService, ItemService itemService) {
+    public SellOrderService(SellOrderRepository sellOrderRepository) {
         this.sellOrderRepository = sellOrderRepository;
-        this.clientRepository = clientRepository;
-        this.schedulingService = schedulingService;
-        this.typeTransportService = typeTransportService;
-        this.itemService = itemService;
     }
 
     @Transactional
@@ -35,21 +27,8 @@ public class SellOrderService {
         //Scheduling schedulingId = schedulingService.findById(sellOrderResquetDTO.getSchedulingId()).get();
        // TypeTransport typeTransportId = typeTransportService.findById(sellOrderResquetDTO.getTypeTransportId()).get();
 
-        // Retorna os registro de Items
-        /*
-        List<Item> itemsId = sellOrderResquetDTO.getItem()
-                .stream()
-                .map(item -> itemService.findById(item.getId())
-                        .orElseThrow(() ->
-                                new FindByIdException("Item não encontrado.")))
-                .toList();
-        */
-        List<Item> itemsId = null;
-        TypeTransport typeTransportId = null;
-        Scheduling schedulingId = null;
-        Client clientId = null;
         // Repository recebe a entidade
-        SellOrder resquet = sellOrderResquetDTO.toEntity(clientId, schedulingId, typeTransportId, itemsId);
+        SellOrder resquet = sellOrderResquetDTO.toEntity();
         // Repository recebe a entidade
         SellOrder sellOrder = sellOrderRepository.save(resquet);
         // Conversão Entidade para DTO

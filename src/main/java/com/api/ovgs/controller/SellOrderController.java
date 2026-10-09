@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-//@RestController
+@RestController
 @RequestMapping("api/sellOrder")
 public class SellOrderController { // Ordem de venda
 
@@ -18,6 +18,7 @@ public class SellOrderController { // Ordem de venda
         this.sellOrderService = sellOrderService;
     }
 
+    // Criar uma ordem de venda
     @PostMapping
     public SellOrderResponseDTO create(@RequestBody SellOrderResquetDTO sellOrderResquetDTO){
         return sellOrderService.createSellOrder(sellOrderResquetDTO);
