@@ -6,6 +6,7 @@ import com.api.ovgs.dto.ItemTotalResponseDTO;
 import com.api.ovgs.entity.Item;
 import com.api.ovgs.repository.ItemRepository;
 import jakarta.validation.constraints.NotNull;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,7 +22,21 @@ public class ItemService {
     }
 
     public ItemReponseDTO createItem(@NotNull ItemResquestDTO itemResquestDTO) {
-        return new ItemReponseDTO(itemRepository.save(itemResquestDTO.itemEntidade()));
+
+        if (itemRepository.existsBySku(itemResquestDTO.getSku())) {
+            throw new IllegalArgumentException("Código de barra já cadastrado");
+        }
+
+        if (!itemResquestDTO.isActive()) {
+            throw new IllegalArgumentException("Cadastro do item não pode ser criado DESATIVADO");
+        }
+
+        try {
+            return new ItemReponseDTO(itemRepository.save(itemResquestDTO.itemEntity()));
+        }
+        catch (DataIntegrityViolationException e) {
+            throw new IllegalArgumentException("Não foi possível cadastrar o item devido a uma violação de dados"+ e);
+        }
     }
 
     // Buscar um ID

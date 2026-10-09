@@ -1,6 +1,6 @@
 package com.api.ovgs.service;
 
-import com.api.ovgs.dto.ClientRequestDTO;
+import com.api.ovgs.dto.ClientResquestDTO;
 import com.api.ovgs.dto.ClientResponseDTO;
 import com.api.ovgs.entity.Client;
 import com.api.ovgs.exception.FindByIdException;
@@ -21,18 +21,18 @@ public class ClientService {
         this.clientRepository = clientRepository;
     }
 
-   public ClientResponseDTO clientCreate(@NonNull ClientRequestDTO clientRequestDTO) {
+   public ClientResponseDTO clientCreate(@NonNull ClientResquestDTO clientResquestDTO) {
 
-       if (clientRepository.existsByEmail(clientRequestDTO.getEmail())) {
+       if (clientRepository.existsByEmail(clientResquestDTO.getEmail())) {
            throw new IllegalArgumentException("E-mail já cadastrado");
        }
 
-       if (!clientRequestDTO.isActive()) {
+       if (!clientResquestDTO.isActive()) {
            throw new IllegalArgumentException("Cadastro do cliente não pode ser criado DESATIVADO");
        }
 
        try {
-           return new ClientResponseDTO(clientRepository.save(clientRequestDTO.toEntity()));
+           return new ClientResponseDTO(clientRepository.save(clientResquestDTO.toEntity()));
        }
        catch (DataIntegrityViolationException e) {
            throw new IllegalArgumentException("Não foi possível cadastrar o cliente devido a uma violação de dados");
@@ -67,13 +67,13 @@ public class ClientService {
     }
 
     // Atualizar dados de cliente
-    public ClientResponseDTO update(Integer id, ClientRequestDTO clientRequestDTO) {
+    public ClientResponseDTO update(Integer id, ClientResquestDTO clientResquestDTO) {
 
         Client client = clientRepository.findById(id).orElseThrow(() -> new FindByIdException("Cliente não encontrado ID= "+id));
 
-        client.setName(clientRequestDTO.getName());
-        client.setEmail(clientRequestDTO.getEmail());
-        client.setActive(clientRequestDTO.isActive());
+        client.setName(clientResquestDTO.getName());
+        client.setEmail(clientResquestDTO.getEmail());
+        client.setActive(clientResquestDTO.isActive());
 
         Client clientUpdate = clientRepository.save(client);
         return new ClientResponseDTO(clientUpdate);

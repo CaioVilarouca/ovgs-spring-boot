@@ -1,6 +1,6 @@
 package com.api.ovgs.controller;
 
-import com.api.ovgs.dto.ClientRequestDTO;
+import com.api.ovgs.dto.ClientResquestDTO;
 import com.api.ovgs.dto.ClientResponseDTO;
 import com.api.ovgs.service.ClientService;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +19,8 @@ public class ClientController { // Cliente
 
     // Criar Cliente
     @PostMapping
-    public ClientResponseDTO create(@RequestBody ClientRequestDTO clientRequestDTO) {
-        return clientService.clientCreate(clientRequestDTO);
+    public ClientResponseDTO create(@RequestBody ClientResquestDTO clientResquestDTO) {
+        return clientService.clientCreate(clientResquestDTO);
     }
 
     // Retorna todos os IDs [ATIVOS] e não [Ñ ATIVOS]
@@ -43,8 +43,8 @@ public class ClientController { // Cliente
     @PutMapping("/{id}")
     public ClientResponseDTO update(
             @PathVariable Integer id,
-            @RequestBody ClientRequestDTO clientRequestDTO
+            @RequestBody ClientResquestDTO clientResquestDTO
     ) {
-        return clientService.update(id, clientRequestDTO);
+        return clientService.update(id, clientResquestDTO);
     }
 }

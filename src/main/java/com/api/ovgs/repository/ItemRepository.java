@@ -7,4 +7,6 @@ import com.api.ovgs.entity.Item;
 
 @Repository
 public interface ItemRepository extends  JpaRepository<Item, Integer>{
+
+    boolean existsBySku(String sku);
 }

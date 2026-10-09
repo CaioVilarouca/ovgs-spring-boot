@@ -84,7 +84,7 @@ public class ItemResquestDTO {
         this.amount = amount;
     }
 
-    public Item itemEntidade() {
-       return new Item(null, this.name, this.sku, this.description, this.active, this.price, this.amount);
+    public Item itemEntity() {
+       return new Item(null, this.name,this.description, this.sku, this.active, this.price, this.amount);
     }
 }

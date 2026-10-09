@@ -2,7 +2,7 @@ package com.api.ovgs.dto;
 
 import com.api.ovgs.entity.Client;
 
-public class ClientRequestDTO {
+public class ClientResquestDTO {
 
     private Integer id;
 

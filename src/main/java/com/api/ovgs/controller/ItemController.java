@@ -30,6 +30,7 @@ public class ItemController {
     public ItemTotalResponseDTO findAll() {
         return itemService.findAll();
     }
+
     // Retorna um ID específico
     @GetMapping("/{id}")
     public Optional<Item> findById(@PathVariable Integer id) {

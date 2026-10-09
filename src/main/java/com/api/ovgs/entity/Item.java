@@ -21,7 +21,7 @@ public class Item {
 	@Column(length = 255)
 	private String description;
 
-	@Column(unique = true, length = 48)
+	@Column(unique = true, length = 48, nullable = false)
 	private String sku;
 	
 	@Column(nullable = false)
