@@ -2,7 +2,6 @@ package com.api.ovgs.dto;
 
 import com.api.ovgs.domain.SellOrderStatus;
 import com.api.ovgs.entity.*;
-import java.util.List;
 
 public class SellOrderResquetDTO {
 
@@ -28,6 +27,6 @@ public class SellOrderResquetDTO {
     }
 
     public SellOrder toEntity() {
-        return new SellOrder(null, null);
+        return new SellOrder(null, SellOrderStatus.CRIADO.getKey());
     }
 }

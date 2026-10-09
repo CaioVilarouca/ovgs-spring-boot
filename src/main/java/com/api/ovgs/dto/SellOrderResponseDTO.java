@@ -10,7 +10,8 @@ public class SellOrderResponseDTO {
     private SellOrderStatus sellOrderStatus;
 
     public SellOrderResponseDTO(SellOrder sellOrder) {
-
+        this.id = sellOrder.getId();
+        this.sellOrderStatus = sellOrder.getSellOrderStatus();
     }
 
     public Integer getId() {

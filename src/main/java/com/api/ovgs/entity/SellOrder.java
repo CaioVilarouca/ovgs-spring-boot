@@ -38,6 +38,14 @@ public class SellOrder { // Ordem de venda
         this.sellOrderStatus = sellOrderStatus;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public SellOrderStatus getSellOrderStatus() {
         return sellOrderStatus;
     }
